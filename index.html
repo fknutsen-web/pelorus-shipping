@@ -212,6 +212,11 @@
   .foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem}
   .foot .brand b{color:#fff}
   .foot small{font-family:var(--m);font-size:.68rem;letter-spacing:.08em;color:var(--slate-light);line-height:1.9}
+  .navlinks a.parent-nav{color:var(--slate-light)}
+  .navlinks a.parent-nav:hover{color:var(--signal)}
+  .foot .parent-link{font-family:var(--m);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--signal);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+  .foot .parent-link:hover{border-color:var(--signal)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
@@ -240,6 +245,10 @@
     .hero-cta{flex-direction:column;align-items:stretch}
     .btn{justify-content:center}
   }
+  /* hide the decorative hero diagram on phones (it gets cropped) */
+  @media (max-width:600px){
+    .route{display:none}
+  }
 </style>
 </head>
 <body>
@@ -253,6 +262,7 @@
       <a href="#clients">Who We Serve</a>
       <a href="#why">Why It Matters</a>
       <a href="#approach">Approach</a>
+      <a href="https://fredheimllc.com" class="parent-nav">Fredheim&nbsp;LLC&nbsp;↗</a>
       <a href="#contact" class="cta">Start a conversation</a>
     </nav>
   </div>
@@ -470,6 +480,7 @@
 <footer>
   <div class="wrap foot">
     <a href="#top" class="brand"><b>FREDHEIM</b><span>Logistics</span></a>
+    <a class="parent-link" href="https://fredheimllc.com">Part of Fredheim&nbsp;LLC →</a>
     <small>
       © <span id="yr"></span> Fredheim Logistics. All rights reserved.<br>
       Commercial freight management · Ocean · Barge · Inland
