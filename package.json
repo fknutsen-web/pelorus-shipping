@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Pelorus Shipping \u2014 server-backed freight-desk quote configurator with lead capture.",
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.0"
+    "@supabase/supabase-js": "^2.45.0",
+    "stripe": "^17.5.0"
   },
   "scripts": {
     "dev": "node dev-server.mjs"

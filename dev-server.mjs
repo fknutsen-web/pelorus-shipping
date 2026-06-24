@@ -6,6 +6,7 @@ import { extname, join } from 'node:path';
 import quote from './api/quote.js';
 import lead from './api/lead.js';
 import engagement from './api/engagement.js';
+import stripeWebhook from './api/stripe-webhook.js';
 
 const TYPES = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png' };
 const PORT = process.env.PORT || 3000;
@@ -25,6 +26,7 @@ http.createServer(async (req,res)=>{
     if (url.pathname === '/api/quote') return quote(req,res);
     if (url.pathname === '/api/lead')  return lead(req,res);
     if (url.pathname === '/api/engagement') return engagement(req,res);
+    if (url.pathname === '/api/stripe-webhook') return stripeWebhook(req,res);
     return res.status(404).json({error:'no such api'});
   }
   let path = url.pathname === '/' ? '/index.html' : url.pathname;

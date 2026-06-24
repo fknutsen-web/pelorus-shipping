@@ -52,7 +52,9 @@ create table if not exists public.pelorus_engagements (
   esign_provider   text,                         -- later phases
   esign_envelope   text,
   signed_pdf_url   text,
-  deposit_status   text,                         -- none | paid | refunded (later)
+  deposit_status   text,                         -- none | pending | paid | refunded
+  deposit_amount   integer,                       -- in cents (e.g. 50000 = $500)
+  stripe_session   text,                          -- Stripe Checkout Session id
   notes            text
 );
 

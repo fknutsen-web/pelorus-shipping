@@ -10,9 +10,12 @@
 import { RATES } from '../lib/rates.js';
 import { computeTiers } from '../lib/calc.js';
 import { createClient } from '@supabase/supabase-js';
+import Stripe from 'stripe';
 
 // Bump when the clickwrap wording changes. Stored with each acceptance.
 const TERMS_VERSION = '2026-06-24';
+// Refundable deposit to confirm the engagement request, in cents.
+const DEPOSIT_CENTS = 50000; // $500
 
 function makeRef() {
   const year = new Date().getFullYear();
@@ -90,26 +93,58 @@ export default async function handler(req, res) {
     accept_ua: accept_ua.slice(0, 400),
   };
 
+  // --- persist (graceful degrade without Supabase) ---
+  let supabase = null, id = null, persisted = false;
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    // No DB configured — accept the request but don't persist (demo mode).
+  if (url && key) {
+    try {
+      supabase = createClient(url, key, { auth: { persistSession: false } });
+      const { data, error } = await supabase.from('pelorus_engagements').insert(record).select('id,ref').single();
+      if (error) throw error;
+      id = data.id; persisted = true;
+    } catch (e) {
+      console.error('engagement insert failed:', e.message);
+    }
+  } else {
     console.log('ENGAGEMENT (not persisted — set SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY):', record);
-    await notify(record).catch(() => {});
-    return res.status(200).json({ ok: true, persisted: false, ref });
   }
 
-  try {
-    const supabase = createClient(url, key, { auth: { persistSession: false } });
-    const { data, error } = await supabase.from('pelorus_engagements').insert(record).select('id,ref').single();
-    if (error) throw error;
-    await notify(record).catch(() => {});
-    return res.status(200).json({ ok: true, persisted: true, ref: data.ref, id: data.id });
-  } catch (e) {
-    console.error('engagement insert failed:', e.message);
-    // Still return the ref so the client has a reference; we logged the record.
-    return res.status(200).json({ ok: true, persisted: false, ref, error: 'store_failed' });
+  // --- optional $500 deposit via Stripe Checkout (Phase 2) ---
+  let checkoutUrl = null;
+  const stripeKey = process.env.STRIPE_SECRET_KEY;
+  if (stripeKey) {
+    try {
+      const stripe = new Stripe(stripeKey);
+      const origin = req.headers.origin || (req.headers.host ? `https://${req.headers.host}` : 'https://www.pelorusshipping.com');
+      const session = await stripe.checkout.sessions.create({
+        mode: 'payment',
+        line_items: [{
+          price_data: {
+            currency: 'usd',
+            unit_amount: DEPOSIT_CENTS,
+            product_data: { name: `Pelorus engagement deposit — ${ref}`, description: 'Refundable deposit to confirm your single-voyage engagement request. Credited to your first invoice.' },
+          },
+          quantity: 1,
+        }],
+        customer_email: record.email || undefined,
+        metadata: { engagement_ref: ref, engagement_id: id || '' },
+        success_url: `${origin}/pricing.html?deposit=success&ref=${encodeURIComponent(ref)}`,
+        cancel_url: `${origin}/pricing.html?deposit=cancelled&ref=${encodeURIComponent(ref)}`,
+      });
+      checkoutUrl = session.url;
+      if (supabase && persisted) {
+        await supabase.from('pelorus_engagements')
+          .update({ deposit_status: 'pending', deposit_amount: DEPOSIT_CENTS, stripe_session: session.id, updated_at: new Date().toISOString() })
+          .eq('ref', ref);
+      }
+    } catch (e) {
+      console.error('stripe checkout failed:', e.message);
+    }
   }
+
+  await notify(record).catch(() => {});
+  return res.status(200).json({ ok: true, persisted, ref, id, checkoutUrl });
 }
 
 // Best-effort email notification to Pelorus. No-op unless RESEND_API_KEY is set,
