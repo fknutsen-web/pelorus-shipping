@@ -1,0 +1,8 @@
+# Supabase — create a project at https://supabase.com, then copy these from
+# Project Settings → API. The SERVICE_ROLE key is secret: server-side only.
+SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=YOUR-SERVICE-ROLE-KEY
+
+# Optional: email notifications on new lead (e.g. Resend). Leave blank to skip.
+# RESEND_API_KEY=
+# LEAD_NOTIFY_TO=contact@pelorusshipping.com

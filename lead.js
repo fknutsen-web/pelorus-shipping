@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pelorus Shipping — Price Your Freight Desk</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a2444">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a2444;--ink:#0e2340;--gold:#b1864e;--gold-soft:#c6a472;--body:#54626f;--sea-1:#f4f7f9;--sea-2:#e8eff2;--line:#dde4e9;--green:#2f8f6b}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',system-ui,sans-serif;color:var(--body);background:var(--sea-1);line-height:1.55}
+h1,h2,h3,h4,.eyebrow,.btn,.cardfee,.disp{font-family:'Figtree',system-ui,sans-serif}a{color:inherit;text-decoration:none}.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.nav{background:#fff;border-bottom:1px solid var(--line)}.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+.brand{display:flex;align-items:center;gap:10px}.brand svg{width:34px;height:34px;color:var(--navy)}.brand .p{font-family:Figtree;font-weight:800;font-size:18px;letter-spacing:.14em;color:var(--navy);line-height:.9}.brand .s{font-family:Figtree;font-weight:600;font-size:8px;letter-spacing:.36em;color:var(--gold);margin-top:2px}
+.navlinks{display:flex;gap:26px;align-items:center}.navlinks a{font-family:Figtree;font-weight:600;font-size:13px;color:var(--ink)}.navlinks a:hover{color:var(--gold)}
+.head{background:linear-gradient(180deg,#fff,var(--sea-1));padding:44px 0 28px;text-align:center}
+.eyebrow{font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.head h1{font-weight:800;font-size:clamp(28px,4vw,42px);color:var(--navy);letter-spacing:-.01em;margin:12px 0 8px}.head p{max-width:60ch;margin:0 auto;font-size:15px}
+.cfg{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px 26px;margin:26px auto 0;box-shadow:0 18px 44px -30px rgba(10,36,68,.35)}
+.cfg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.f label{display:block;font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:3px}.f .hint{font-weight:400;color:var(--body);font-size:11px}
+.f .val{font-family:Figtree;font-weight:800;font-size:22px;color:var(--navy);margin:6px 0 4px}input[type=range]{width:100%;accent-color:var(--gold);margin-top:4px}
+.numline{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:6px}.numline span{padding:0 9px;font-size:13px;color:var(--body);background:var(--sea-1);align-self:stretch;display:flex;align-items:center;border-right:1px solid var(--line)}.numline input{border:none;outline:none;padding:9px 10px;width:100%;font-size:14px;color:var(--ink);font-family:Mulish}.numline .suf{border-right:none;border-left:1px solid var(--line)}
+.tier-head{text-align:center;margin:38px 0 4px}.tier-head h2{font-weight:800;font-size:24px;color:var(--navy)}.tier-head p{font-size:13.5px;margin-top:4px}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:24px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:24px 22px;cursor:pointer;position:relative;transition:.15s}.card:hover{border-color:var(--gold-soft)}.card.sel{border-color:var(--gold);box-shadow:0 0 0 3px rgba(177,134,78,.16)}
+.card .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-family:Figtree;font-weight:700;font-size:10px;letter-spacing:.1em;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.card .ct{font-family:Figtree;font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}.card h3{font-weight:800;font-size:19px;color:var(--navy);margin:6px 0 12px}
+.card .cardfee{font-weight:800;font-size:30px;color:var(--navy);letter-spacing:-.02em}.card .per{font-size:12px;margin-top:2px}.card .eff{font-family:Figtree;font-weight:700;font-size:13px;color:var(--gold);margin-top:10px}
+.card .efee{font-size:11.5px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);line-height:1.4}.card .efee b{font-family:Figtree;color:var(--ink)}
+.detail{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;margin-top:22px}.detail h3{font-weight:800;color:var(--navy);font-size:18px}
+.calc{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:16px 0}.calc .ch{background:var(--navy);color:#fff;font-family:Figtree;font-weight:700;font-size:11.5px;letter-spacing:.1em;padding:10px 16px}
+.row{display:flex;justify-content:space-between;padding:9px 16px;font-size:13px;border-top:1px solid var(--line)}.row .v{font-family:Figtree;font-weight:600;color:var(--ink)}.row.tot{background:var(--sea-1)}.row.tot .l{font-family:Figtree;font-weight:700;color:var(--navy)}.row.tot .v{font-weight:800;color:var(--navy)}
+.strip{border-radius:8px;padding:16px 18px;margin-top:14px;font-size:13px;line-height:1.5}.strip.gold{background:#fbf4e9;border:1px solid #e7cfa3}.strip.green{background:#eef6f1;border:1px solid #bfe0cf}
+.strip .st{font-family:Figtree;font-weight:800;font-size:13px;margin-bottom:3px}.strip.gold .st{color:#8a5e16}.strip.green .st{color:#1f6a4e}.strip .bign{font-family:Figtree;font-weight:800;font-size:20px}.strip.green .bign{color:var(--green)}.strip.gold .bign{color:var(--gold)}
+.bars{margin-top:18px}.barrow{margin-bottom:13px}.barrow .bl{display:flex;justify-content:space-between;font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:5px}
+.bar{height:28px;border-radius:5px;background:var(--sea-2);overflow:hidden}.bar .fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-family:Figtree;font-weight:700;font-size:12px;min-width:50px}.fill.ih{background:linear-gradient(90deg,#3a4f66,#243a52)}.fill.pel{background:linear-gradient(90deg,var(--gold),#9c7540)}
+.cta{text-align:center;margin-top:24px}.btn{display:inline-block;font-family:Figtree;font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;background:var(--gold);color:#fff;border:none;cursor:pointer}.btn:hover{background:#9c7540}.cta .micro{font-size:12px;margin-top:10px}
+.disc{font-size:11px;color:#8a97a1;line-height:1.5;margin-top:18px;text-align:center;max-width:80ch;margin:18px auto 0}
+footer{background:var(--navy);color:#9fb0c3;padding:24px 0;margin-top:50px;font-family:Figtree;font-weight:600;font-size:11px;letter-spacing:.18em;text-align:center}
+@media(max-width:860px){.cfg-grid,.cards{grid-template-columns:1fr}.navlinks{display:none}}
+/* commit modal */
+.modal{position:fixed;inset:0;background:rgba(10,36,68,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.on{display:flex}
+.mbox{background:#fff;border-radius:10px;max-width:420px;width:100%;padding:26px}.mbox h3{color:var(--navy);font-size:18px;margin-bottom:6px}.mbox p{font-size:13px;margin-bottom:14px}
+.mbox .numline{margin-bottom:10px}.mbox .row2{display:flex;gap:10px}.mok{font-size:13px;color:var(--green);font-family:Figtree;font-weight:700}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5"/><polygon points="50,9 56,46 91,50 56,54 50,91 44,54 9,50 44,46" fill="currentColor" opacity=".3" transform="rotate(45 50 50)"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/><circle cx="50" cy="50" r="4.4" fill="currentColor"/></symbol></svg>
+
+<div class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><svg><use href="#compass"/></svg><div><div class="p">PELORUS</div><div class="s">SHIPPING</div></div></a>
+  <div class="navlinks"><a href="index.html">Home</a><a href="index.html#services">What we do</a><a href="pricing.html">Pricing</a><a href="index.html#contact">Contact</a></div>
+</div></div>
+
+<div class="head"><div class="wrap">
+  <div class="eyebrow">Price your freight desk</div>
+  <h1>See your fee — and what it replaces.</h1>
+  <p>Enter your cargo profile. We'll show your indicative fee at each level of commitment, what an in-house desk would cost you instead, and the freight savings we'd target on top.</p>
+  <div class="cfg"><div class="cfg-grid">
+     <div class="f"><label>Annual cargo <span class="hint">freight tonnes / year</span></label><div class="val" id="tonVal">180,000 t</div><input type="range" id="ton" min="10000" max="600000" step="5000" value="180000" oninput="onInput()"></div>
+     <div class="f"><label>Shipments per year</label><div class="val" id="voyVal">12</div><input type="range" id="voy" min="1" max="60" step="1" value="12" oninput="onInput()"></div>
+     <div class="f"><label>Your benchmark freight rate <span class="hint">current / market $ per tonne (optional)</span></label><div class="numline"><span>$</span><input type="number" id="bench" value="42" oninput="onInput()"><span class="suf">/t</span></div><div class="hint" style="margin-top:6px">Used only to estimate potential savings — leave as-is if unsure.</div></div>
+  </div>
+  <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line)">
+    <div style="font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:3px">Logistics contracts to negotiate <span style="font-weight:400;color:var(--body)">(optional — ocean, barge, rail, road, terminal &amp; storage)</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
+      <div class="f"><label style="font-weight:600;font-size:11.5px">Simple rate negotiations <span class="hint">trucking lane, spot storage</span></label><div class="numline"><input type="number" id="lc" value="0" min="0" oninput="onInput()"></div></div>
+      <div class="f"><label style="font-weight:600;font-size:11.5px">Structured agreements <span class="hint">multi-year rail, terminal services</span></label><div class="numline"><input type="number" id="sc" value="0" min="0" oninput="onInput()"></div></div>
+    </div>
+  </div></div>
+</div></div>
+
+<div class="wrap">
+ <div class="tier-head"><h2>Choose your commitment</h2><p>The service is the same at every level — one integrated desk, fix to discharge. Commit deeper, pay less per tonne, and pay the engagement fee only once.</p></div>
+ <div class="cards" id="cards"></div>
+ <div class="detail" id="detail"></div>
+ <div class="disc" id="disc"></div>
+</div>
+
+<div class="modal" id="modal"><div class="mbox">
+  <h3>Request a firm proposal</h3><p id="mdesc"></p>
+  <div class="numline"><input type="text" id="m_name" placeholder="Your name"></div>
+  <div class="numline"><input type="text" id="m_co" placeholder="Company"></div>
+  <div class="numline"><input type="email" id="m_email" placeholder="Email"></div>
+  <div class="row2"><button class="btn" style="flex:1" onclick="sendLead()">Send request</button><button class="btn" style="flex:0 0 auto;background:#fff;color:var(--navy);border:1px solid var(--line)" onclick="closeModal()">Cancel</button></div>
+  <div id="mstatus" style="margin-top:10px"></div>
+</div></div>
+
+<footer>PELORUS · SHIPPING — OCEAN · BARGE · RAIL · ROAD · TERMINAL &amp; STORAGE — INDEPENDENT LOGISTICS COMMERCIAL DESK</footer>
+
+<script>
+var sel='desk', Q=null, timer=null;
+var $=function(id){return document.getElementById(id)};
+function input(){return {annualTonnes:+$('ton').value, shipments:+$('voy').value, benchmark:+$('bench').value, lightContracts:+($('lc')?$('lc').value:0), structuredContracts:+($('sc')?$('sc').value:0)}}
+function f0(n){return (Q?Q.currency:'$')+Math.round(n).toLocaleString('en-US')}
+function f2(n){return (Q?Q.currency:'$')+(+n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function onInput(){$('tonVal').textContent=(+$('ton').value).toLocaleString()+' t';$('voyVal').textContent=+$('voy').value;clearTimeout(timer);timer=setTimeout(fetchQuote,150)}
+async function fetchQuote(){
+  try{
+    var r=await fetch('/api/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input())});
+    Q=await r.json(); render();
+  }catch(e){ $('detail').innerHTML='<p style="color:#b04a36">Could not reach the pricing service. (Deploy the API, or run the dev server.)</p>'; }
+}
+function pick(k){sel=k;render()}
+function render(){
+  if(!Q||!Q.tiers) return;
+  var html='';
+  Q.tiers.forEach(function(t){
+    html+='<div class="card '+(t.key===sel?'sel':'')+'" onclick="pick(\''+t.key+'\')">';
+    if(t.key===Q.bestKey) html+='<div class="badge">BEST VALUE AT YOUR VOLUME</div>';
+    html+='<div class="ct">'+t.tagline+'</div><h3>'+t.name+'</h3>';
+    html+='<div class="cardfee">'+f0(t.annual)+'</div><div class="per">per year, all in</div>';
+    html+='<div class="eff">'+f2(t.perTon)+' / tonne effective</div>';
+    html+='<div class="efee">'+(t.engOnce?'Engagement fee <b>'+f0(Q.engagementFee)+', paid once</b>':'Engagement fee <b>'+f0(Q.engagementFee)+' every voyage</b> ('+f0(t.engPerYear)+'/yr)')+'</div></div>';
+  });
+  $('cards').innerHTML=html;
+
+  var t=Q.tiers.filter(function(x){return x.key===sel})[0], single=Q.tiers[0], ton=Q.input.annualTonnes, voy=Q.input.shipments;
+  var d='<h3>'+t.name+' — '+f0(t.annual)+' / year</h3>';
+  d+='<div class="calc"><div class="ch">HOW YOUR FEE IS CALCULATED</div>';
+  if(t.key==='spot'){d+=row('Fee per shipment',f0(t.perShip));d+=row('Engagement fee, each voyage',f0(Q.engagementFee));d+=row('Per shipment',f0(t.perShip+Q.engagementFee));d+=rowTot('Annual ('+voy+' shipments)',f0(t.annual));}
+  else if(t.key==='recur'){d+=row('Committed per-tonne × annual cargo',f0(t.annual-Q.engagementFee));d+=row('Engagement fee (once)',f0(Q.engagementFee));d+=rowTot('Annual fee',f0(t.annual));}
+  else {d+=row('Standing-desk retainer + committed per-tonne',f0(t.annual-Q.engagementFee));d+=row('Engagement fee (once, '+Q.deskTerm+'-yr term)',f0(Q.engagementFee));d+=rowTot('Year-1 fee',f0(t.annual));}
+  d+=row('Effective rate',f2(t.perTon)+' / t')+'</div>';
+  if(t.engOnce){var saved=single.engPerYear-t.engPerYear;d+='<div class="strip gold"><div class="st">Why committing pays — engagement fees</div>Run these '+voy+' shipments as one-offs and the '+f0(Q.engagementFee)+' engagement fee applies every time — <b>'+f0(single.engPerYear)+' a year in setup alone</b>. On '+t.name.toLowerCase()+' you pay it once. <span class="bign">You save '+f0(saved)+'</span> in engagement fees by committing.</div>';}
+  if(Q.freight){d+='<div class="strip green"><div class="st">Potential freight savings — a bonus, not a guarantee</div>If we beat your '+f2(Q.freight.benchmark)+'/t benchmark by our target '+Q.freight.cutLow+'–'+Q.freight.cutHigh+'%, that is '+f2(Q.freight.low)+'–'+f2(Q.freight.high)+'/t — <span class="bign">'+f0(Q.freight.annualLow)+'–'+f0(Q.freight.annualHigh)+' / year</span>. You pay the same fee whether or not we beat it; savings are upside you keep.</div>';}
+  if(Q.contracts){
+    var c=Q.contracts, parts=[];
+    if(c.lightN) parts.push(c.lightN+' simple ('+f0(c.lightFee)+' ea)');
+    if(c.structN) parts.push(c.structN+' structured ('+f0(c.structFee)+' ea)');
+    if(t.key==='desk'){
+      d+='<div class="strip green"><div class="st">Logistics contract negotiation — included on the desk</div>'+
+         'Negotiating your '+parts.join(' + ')+' is part of the desk mandate. As one-offs these would be <span class="bign">'+f0(c.total)+'</span> in project fees — included free when you commit to the desk.</div>';
+    } else {
+      d+='<div class="strip gold"><div class="st">Logistics contract negotiation — one-off project fees</div>'+
+         parts.join(' + ')+' = <span class="bign">'+f0(c.total)+'</span>, billed per contract on top of the fee above. '+
+         '<b style="font-family:Figtree;color:var(--ink)">Included free on the outsourced desk.</b></div>';
+    }
+  }
+  var ih=Q.inhouse,max=Math.max(ih,t.annual,1);
+  d+='<div class="bars"><div class="barrow"><div class="bl"><span>Build an in-house desk</span><span>'+f0(ih)+' / yr</span></div><div class="bar"><div class="fill ih" style="width:'+(ih/max*100)+'%">'+f0(ih)+'</div></div></div><div class="barrow"><div class="bl"><span>'+t.name+'</span><span>'+f0(t.annual)+' / yr</span></div><div class="bar"><div class="fill pel" style="width:'+(t.annual/max*100)+'%">'+f0(t.annual)+'</div></div></div></div>';
+  d+='<div class="strip green" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div class="st" style="margin:0">Lower than building it yourself by</div><div class="bign">'+f0(ih-t.annual)+' / year</div></div>';
+  d+='<div class="cta"><button class="btn" onclick="openModal()">Commit — request a firm proposal →</button><div class="micro">No obligation. We confirm a fixed per-tonne rate against your actual cargo and lanes.</div></div>';
+  $('detail').innerHTML=d;
+  $('disc').textContent='Indicative only. The in-house comparison and freight-saving range are estimates, not guarantees. A firm fee is quoted per cargo, lane and volume. The per-tonne rate is fixed — never a percentage of your freight bill, never a position against your cargo.';
+}
+function row(l,v){return '<div class="row"><span class="l">'+l+'</span><span class="v">'+v+'</span></div>'}
+function rowTot(l,v){return '<div class="row tot"><span class="l">'+l+'</span><span class="v">'+v+'</span></div>'}
+function openModal(){var t=Q.tiers.filter(function(x){return x.key===sel})[0];$('mdesc').textContent=t.name+' — indicative '+f0(t.annual)+'/yr for '+Q.input.annualTonnes.toLocaleString()+' t over '+Q.input.shipments+' shipments.';$('mstatus').innerHTML='';$('modal').classList.add('on')}
+function closeModal(){$('modal').classList.remove('on')}
+async function sendLead(){
+  $('mstatus').textContent='Sending…';
+  try{
+    var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('m_name').value,company:$('m_co').value,email:$('m_email').value,selectedTier:sel,input:input()})});
+    var j=await r.json();
+    $('mstatus').innerHTML='<span class="mok">✓ Request received. We\'ll come back with a firm per-tonne proposal.</span>';
+  }catch(e){$('mstatus').innerHTML='<span style="color:#b04a36">Could not send — email contact@pelorusshipping.com.</span>'}
+}
+fetchQuote();
+</script></body></html>
