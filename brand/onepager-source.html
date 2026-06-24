@@ -1,0 +1,133 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800;900&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0e2340;--navy2:#0a1c35;--badge:#0a2444;--gold:#b1864e;--golds:#c6a472;--goldl:#cbb68d;--ink:#243945;--paper:#eef1f3;--line:rgba(14,35,64,.14)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  @page{size:letter;margin:0}
+  html,body{width:8.5in;height:11in}
+  body{font-family:'Mulish',sans-serif;color:var(--ink);font-size:9.2px;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:8.5in;height:11in;padding:0;display:flex;flex-direction:column;background:#fff;overflow:hidden}
+  .eye{font-family:'Mulish';font-weight:700;font-size:7px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  h1,h2,h3{font-family:'Figtree';font-weight:800;color:var(--navy);letter-spacing:-.01em;line-height:1.04}
+  /* TOP BAR */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:20px 34px 14px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .wm .p{font-family:'Figtree';font-weight:800;font-size:17px;letter-spacing:.15em;color:var(--navy);line-height:.9}
+  .wm .s{font-family:'Figtree';font-weight:600;font-size:7.6px;letter-spacing:.40em;color:var(--gold);margin-top:2px}
+  .topr{text-align:right}
+  .topr .t1{font-family:'Mulish';font-weight:700;font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+  .topr .t2{font-size:8.5px;color:var(--gold);font-weight:600;margin-top:2px}
+  /* HERO */
+  .hero{margin:0 34px;background:radial-gradient(120% 180% at 85% 10%,var(--navy) 0%,var(--navy2) 75%,#07172c 100%);border-radius:10px;padding:22px 26px;color:#fff;position:relative;overflow:hidden}
+  .hero .star{position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:230px;height:230px;opacity:.08}
+  .hero .eye{color:var(--goldl)}
+  .hero h1{color:#fff;font-size:30px;margin:7px 0 9px}
+  .hero h1 span{color:var(--golds)}
+  .hero p{font-size:10px;line-height:1.6;color:#d6dde6;max-width:6.0in}
+  .hero p b{color:#fff;font-weight:700}
+  .modes{margin-top:12px;font-family:'Mulish';font-weight:700;font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:var(--goldl)}
+  /* SECTION */
+  .sec{padding:16px 34px 0}
+  .sec h2{font-size:15px;margin:4px 0 2px}
+  .sub{color:#5a6b76;font-size:8.6px;margin-bottom:10px;max-width:6.6in}
+  /* 3 PILLARS */
+  .cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .card{border:1px solid var(--line);border-radius:8px;padding:12px 13px;background:#fbfcfd}
+  .card .n{font-family:'Mulish';font-weight:700;font-size:6.6px;letter-spacing:.16em;color:var(--gold)}
+  .card h3{font-size:11px;margin:5px 0 1px}
+  .card .tag{font-style:italic;color:#7a8893;font-size:8px;margin-bottom:7px;font-family:'Figtree'}
+  .card ul{list-style:none}
+  .card li{position:relative;padding-left:11px;margin:3px 0;font-size:8.4px;color:var(--ink)}
+  .card li::before{content:"";position:absolute;left:0;top:6px;width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+  /* TWO COLUMN: model + serve */
+  .split{display:grid;grid-template-columns:1.15fr 1fr;gap:20px;align-items:start}
+  .model .m{display:flex;gap:9px;margin:8px 0}
+  .model .mn{font-family:'Figtree';font-weight:800;color:var(--gold);font-size:13px;line-height:1;min-width:16px}
+  .model .mh{font-family:'Figtree';font-weight:700;color:var(--navy);font-size:9.6px}
+  .model .mt{font-size:8.3px;color:#5a6b76;line-height:1.45}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .chip{border:1px solid var(--line);border-radius:40px;padding:4px 10px;font-size:8px;font-weight:600;color:var(--navy);background:#fff}
+  /* ENGAGE */
+  .cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+  .tier{border:1px solid var(--line);border-top:2.5px solid var(--gold);border-radius:7px;padding:10px 11px;background:#fbfcfd}
+  .tier .n{font-family:'Mulish';font-weight:700;font-size:6.2px;letter-spacing:.14em;color:var(--gold)}
+  .tier h3{font-size:9.8px;margin:4px 0 3px}
+  .tier p{font-size:7.8px;color:#5a6b76;line-height:1.4}
+  /* FOOTER */
+  .foot{margin-top:auto;background:var(--navy);color:#fff;padding:14px 34px;display:flex;align-items:center;justify-content:space-between}
+  .foot .ft{font-family:'Figtree';font-weight:800;font-size:12px;color:#fff}
+  .foot .ft span{color:var(--golds)}
+  .foot .fc{text-align:right;font-size:8.4px;color:#cdd6df}
+  .foot .fc a{color:var(--goldl);font-weight:700;text-decoration:none}
+  .foot .modesf{font-size:6.6px;letter-spacing:.16em;color:#8fa0b0;margin-top:3px;text-transform:uppercase}
+  .starsvg .a{fill:var(--gold)}
+</style></head>
+<body><div class="page">
+
+  <div class="top">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" width="38" height="38"><rect width="100" height="100" rx="22" fill="#0a2444"/><polygon points="50,14 56,44 86,50 56,56 50,86 44,56 14,50 44,44" fill="#b1864e" transform="rotate(45 50 50)"/><polygon points="50,9 56,44 91,50 56,56 50,91 44,56 9,50 44,44" fill="#fff"/><circle cx="50" cy="50" r="4.6" fill="#0a2444"/></svg>
+      <div class="wm"><div class="p">PELORUS</div><div class="s">SHIPPING</div></div>
+    </div>
+    <div class="topr"><div class="t1">Independent Logistics Commercial Desk</div><div class="t2">contact@pelorusshipping.com · www.pelorusshipping.com</div></div>
+  </div>
+
+  <div class="hero">
+    <svg class="star" viewBox="0 0 100 100"><polygon points="50,9 56,44 91,50 56,56 50,91 44,56 9,50 44,44" fill="#b1864e"/></svg>
+    <div class="eye">Your Outsourced Freight Desk</div>
+    <h1>Your freight desk —<br><span>not your broker.</span></h1>
+    <p>All the chartering and logistics muscle of an in-house freight desk — without building one. We structure, negotiate and execute your cargo across every mode for a <b>fixed per-ton fee</b>, so we earn the same whether freight runs high or low — and <b>never take a position against you</b>.</p>
+    <div class="modes">Ocean · Barge · Rail · Road · Terminal &amp; Storage</div>
+  </div>
+
+  <div class="sec">
+    <div class="eye">What we do</div>
+    <h2>Three jobs, across the full freight cycle.</h2>
+    <div class="sub">One integrated desk on the cargo owner's side. We don't split the cycle: if we fix it, we run it.</div>
+    <div class="cols3">
+      <div class="card"><div class="n">01 — COMMERCIAL</div><h3>Freight Strategy &amp; Chartering</h3><div class="tag">Buying your freight well.</div>
+        <ul><li>Market guidance &amp; timing</li><li>Ocean, barge &amp; inland sourcing</li><li>COA &amp; spot voyage negotiation</li><li>Charter-party review &amp; support</li></ul></div>
+      <div class="card"><div class="n">02 — OPERATIONAL</div><h3>Voyage Execution &amp; Operations</h3><div class="tag">Running it clean.</div>
+        <ul><li>Broker &amp; carrier coordination</li><li>Terminal &amp; cargo-flow management</li><li>Execution, nomination to discharge</li><li>Real-time voyage oversight</li></ul></div>
+      <div class="card"><div class="n">03 — GOVERNANCE</div><h3>Commercial Oversight &amp; Recovery</h3><div class="tag">Proving &amp; protecting the result.</div>
+        <ul><li>Freight cost benchmarking</li><li>Laytime &amp; demurrage control</li><li>Claims oversight &amp; recovery</li><li>Post-voyage &amp; margin reporting</li></ul></div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="split">
+    <div class="model">
+      <div class="eye">How we work</div><h2 style="font-size:15px">The model is the difference.</h2>
+      <div class="m"><div class="mn">01</div><div><div class="mh">Embedded &amp; exclusive</div><div class="mt">Your standing freight desk, not a voyage-by-voyage vendor — exclusive to you within your lanes.</div></div></div>
+      <div class="m"><div class="mn">02</div><div><div class="mh">A fixed per-ton fee</div><div class="mt">A set fee per freight ton, never a percentage of the bill. Our only incentive is to drive your freight down.</div></div></div>
+      <div class="m"><div class="mn">03</div><div><div class="mh">Never a position against you</div><div class="mt">We don't trade freight or take the other side of your cargo. Pure representation of the cargo owner, start to finish.</div></div></div>
+    </div>
+    <div class="serve">
+      <div class="eye">Who we serve</div><h2 style="font-size:15px">Companies moving cargo — not building freight teams.</h2>
+      <div class="sub" style="margin-bottom:6px">Bulk, breakbulk, project, industrial &amp; commodity cargoes.</div>
+      <div class="chips">
+        <span class="chip">Cargo owners</span><span class="chip">Cargo purchasers</span><span class="chip">Industrial importers &amp; exporters</span>
+        <span class="chip">Cement, aggregates &amp; minerals</span><span class="chip">Steel &amp; energy shippers</span><span class="chip">Traders &amp; distributors</span>
+        <span class="chip">Terminals developing cargo</span><span class="chip">Project &amp; breakbulk movers</span><span class="chip">No dedicated freight desk</span>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="sec">
+    <div class="eye">Ways to engage</div><h2 style="font-size:15px">One service. You choose the commitment.</h2>
+    <div class="sub">The work is always the full cycle. What scales is how deeply we're embedded — from a single cargo to your exclusive standing desk.</div>
+    <div class="cols4">
+      <div class="tier"><div class="n">01 — LIGHTEST</div><h3>Single voyage</h3><p>One-off commercial management of a specific cargo, end to end.</p></div>
+      <div class="tier"><div class="n">02</div><h3>Recurring program</h3><p>Ongoing management of a repeating cargo flow on agreed lanes.</p></div>
+      <div class="tier"><div class="n">03</div><h3>COA strategy</h3><p>Structure &amp; negotiate contracts of affreightment over time.</p></div>
+      <div class="tier"><div class="n">04 — DEEPEST</div><h3>Outsourced desk</h3><p>Exclusive, fully managed desk — your standing commercial department.</p></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div><div class="ft">Better freight decisions. <span>Better cargo economics.</span></div>
+      <div class="modesf">Ocean · Barge · Rail · Road · Terminal &amp; Storage — Independent Logistics Commercial Desk</div></div>
+    <div class="fc">Tell us about your cargo &amp; lanes.<br><a href="mailto:contact@pelorusshipping.com">contact@pelorusshipping.com</a> · <a href="https://www.pelorusshipping.com">pelorusshipping.com</a><br><span style="color:#7e8fa0">© Fredheim LLC</span></div>
+  </div>
+
+</div></body></html>
