@@ -38,12 +38,15 @@ h2.sec{font-family:'Figtree';font-weight:700;font-size:clamp(26px,3.4vw,37px);co
 .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;position:relative;z-index:5}
 .brand{display:flex;align-items:center;gap:11px}
 .brand .compass{width:40px;height:40px}
+.brand .logomark{width:42px;height:42px;flex:0 0 auto;display:block}
 .brand .wm{line-height:.9}
 .brand .p{font-family:'Figtree';font-weight:800;font-size:21px;letter-spacing:.15em;color:var(--navy)}
 .brand .s{font-family:'Figtree';font-weight:600;font-size:9.5px;letter-spacing:.40em;color:var(--gold);margin-top:2px}
 .navlinks{display:flex;gap:30px;align-items:center}
 .navlinks a{font-family:'Figtree';font-weight:600;font-size:14px;color:var(--ink);letter-spacing:.01em}
 .navlinks a:hover{color:var(--gold)}
+.navlinks a.btn{color:#fff}
+.navlinks a.btn:hover{color:#fff;background:#9c7540;border-color:#9c7540}
 .btn{font-family:'Figtree';font-weight:700;font-size:13.5px;letter-spacing:.04em;padding:12px 22px;border-radius:3px;background:var(--navy);color:#fff;border:1px solid var(--navy);transition:.2s}
 .btn:hover{background:#0d2c52}
 .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--gold)}
@@ -153,7 +156,13 @@ footer .ftbrand{display:flex;align-items:center;gap:12px;color:#cfd9e4}
 <header class="hero">
  <div class="wrap">
   <nav class="nav">
-   <div class="brand"><svg class="compass"><use href="#compass"/></svg>
+   <div class="brand">
+     <svg class="logomark" viewBox="0 0 100 100" role="img" aria-label="Pelorus Shipping">
+       <rect width="100" height="100" rx="22" fill="#0a2444"/>
+       <polygon points="50,14 56,44 86,50 56,56 50,86 44,56 14,50 44,44" fill="#b1864e" transform="rotate(45 50 50)"/>
+       <polygon points="50,9 56,44 91,50 56,56 50,91 44,56 9,50 44,44" fill="#ffffff"/>
+       <circle cx="50" cy="50" r="4.6" fill="#0a2444"/>
+     </svg>
      <div class="wm"><div class="p">PELORUS</div><div class="s">SHIPPING</div></div></div>
    <div class="navlinks">
      <a href="#services">What We Do</a><a href="#serve">Who We Serve</a>
