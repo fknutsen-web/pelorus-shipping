@@ -50,8 +50,6 @@ footer{background:var(--navy);color:#9fb0c3;padding:24px 0;margin-top:50px;font-
 .eng-only{display:none}.modal.engage .eng-only{display:block}
 .clickwrap{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--ink);margin:2px 0 12px;cursor:pointer;line-height:1.45}.clickwrap input{margin-top:2px;width:15px;height:15px;accent-color:var(--gold);flex:0 0 auto}.clickwrap b{font-family:Figtree;color:var(--navy)}
 .mref{font-family:Figtree;font-weight:800;color:var(--navy)}
-.depbar{display:none;padding:13px 18px;font-size:13.5px;text-align:center;font-family:Figtree;font-weight:600}
-.depbar.show{display:block}.depbar.ok{background:#eef6f1;color:#1f6a4e;border-bottom:1px solid #bfe0cf}.depbar.warn{background:#fbf2e0;color:#8a5e16;border-bottom:1px solid #e7cfa3}.depbar .mref{color:inherit}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5"/><polygon points="50,9 56,46 91,50 56,54 50,91 44,54 9,50 44,46" fill="currentColor" opacity=".3" transform="rotate(45 50 50)"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/><circle cx="50" cy="50" r="4.4" fill="currentColor"/></symbol></svg>
 
@@ -65,8 +63,6 @@ footer{background:var(--navy);color:#9fb0c3;padding:24px 0;margin-top:50px;font-
   <a href="index.html">Home</a><a href="index.html#services">What we do</a><a href="pricing.html">Pricing</a><a href="index.html#careers">Careers</a><a href="index.html#contact">Contact</a>
  </div>
 </div>
-
-<div class="depbar" id="depbar"></div>
 
 <div class="head"><div class="wrap">
   <div class="eyebrow">Price your freight desk</div>
@@ -101,7 +97,7 @@ footer{background:var(--navy);color:#9fb0c3;padding:24px 0;margin-top:50px;font-
   <div class="eng-only">
     <div class="numline"><input type="tel" id="m_phone" placeholder="Phone"></div>
     <div class="numline"><input type="text" id="m_lane" placeholder="Lane(s) — e.g. US Gulf–WCSA"></div>
-    <label class="clickwrap"><input type="checkbox" id="m_agree"><span>I understand this is a request for a <b>single-voyage</b> engagement at an <b>indicative</b> fee; Pelorus will confirm the fee against my actual cargo and lanes, and a binding agreement is formed only on a signed engagement letter. A <b>refundable $500 deposit</b> confirms my request — credited to my first invoice, refunded if I don't proceed.</span></label>
+    <label class="clickwrap"><input type="checkbox" id="m_agree"><span>I understand this is a request for a <b>single-voyage</b> engagement at an <b>indicative</b> fee; Pelorus will confirm the fee against my actual cargo and lanes, and a binding agreement is formed only on a signed engagement letter.</span></label>
   </div>
   <div class="row2"><button class="btn" id="m_submit" style="flex:1" onclick="submitModal()">Send request</button><button class="btn" style="flex:0 0 auto;background:#fff;color:var(--navy);border:1px solid var(--line)" onclick="closeModal()">Cancel</button></div>
   <div id="mstatus" style="margin-top:10px"></div>
@@ -163,7 +159,7 @@ function render(){
   d+='<div class="strip green" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div class="st" style="margin:0">Lower than building it yourself by</div><div class="bign">'+f0(ih-t.annual)+' / year</div></div>';
   var ctaLabel = (sel==='spot') ? 'Request this engagement →' : 'Commit — request a firm proposal →';
   var ctaMicro = (sel==='spot')
-    ? 'Indicative fee. A refundable $500 deposit confirms your request; we then confirm the fixed per-tonne rate against your cargo and lanes and send an engagement letter to sign. The deposit is credited to your first invoice and refunded if you don\'t proceed.'
+    ? 'Indicative fee. You accept the request terms; we then confirm the fixed per-tonne rate against your cargo and lanes and send an engagement letter to sign. No payment now.'
     : 'No obligation. We confirm a fixed per-tonne rate against your actual cargo and lanes.';
   d+='<div class="cta"><button class="btn" onclick="openModal()">'+ctaLabel+'</button><div class="micro">'+ctaMicro+'</div></div>';
   $('detail').innerHTML=d;
@@ -176,7 +172,7 @@ function openModal(){
   var engage = (sel==='spot');
   $('modal').classList.toggle('engage', engage);
   $('mtitle').textContent = engage ? 'Request this engagement' : 'Request a firm proposal';
-  $('m_submit').textContent = engage ? 'Continue to deposit →' : 'Send request';
+  $('m_submit').textContent = engage ? 'Request engagement' : 'Send request';
   $('mdesc').textContent=t.name+' — indicative '+f0(t.annual)+'/yr for '+Q.input.annualTonnes.toLocaleString()+' t over '+Q.input.shipments+' shipments.';
   if($('m_agree')) $('m_agree').checked=false;
   $('mstatus').innerHTML='';$('modal').classList.add('on');
@@ -202,18 +198,10 @@ async function sendEngagement(){
       selectedTier:'spot',termsAccepted:true,input:input()})});
     var j=await r.json();
     if(!r.ok||j.error){throw new Error(j.message||'failed')}
-    if(j.checkoutUrl){ $('mstatus').innerHTML='<span class="mok">Redirecting to secure deposit…</span>'; window.location.href=j.checkoutUrl; return; }
     $('mstatus').innerHTML='<span class="mok">✓ Request received'+(j.ref?' — <span class="mref">'+j.ref+'</span>':'')+'. We\'ll confirm your fee and send an engagement letter to sign, usually within 1 business day.</span>';
   }catch(e){$('mstatus').innerHTML='<span style="color:#b04a36">'+(e.message&&e.message!=='failed'?e.message:'Could not send — email contact@pelorusshipping.com.')+'</span>'}
 }
 function toggleMenu(btn){var m=$('mobileMenu');var open=m.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 function closeMenu(){var m=$('mobileMenu');if(m)m.classList.remove('open');}
-function showDepositBanner(){
-  var q=new URLSearchParams(location.search), d=q.get('deposit'), ref=q.get('ref'), bar=$('depbar');
-  if(!d) return;
-  if(d==='success'){bar.className='depbar show ok';bar.innerHTML='✓ Deposit received'+(ref?' — <span class="mref">'+ref+'</span>':'')+'. We\'ll confirm your fee and send your engagement letter to sign, usually within 1 business day.';}
-  else if(d==='cancelled'){bar.className='depbar show warn';bar.innerHTML='Deposit not completed'+(ref?' — <span class="mref">'+ref+'</span>':'')+'. Your request is saved; reopen it any time, or email contact@pelorusshipping.com.';}
-}
-showDepositBanner();
 fetchQuote();
 </script></body></html>

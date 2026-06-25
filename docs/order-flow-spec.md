@@ -207,7 +207,7 @@ Phase 3 adds a small **authenticated ops page**:
 1. **Binding moment** — the **e-signed engagement letter**, not the website click. ✅
 2. **Orderable online** — **single voyage only**; outsourced desk + recurring stay consultative. ✅ (enforced server-side in `/api/engagement`)
 3. **Signing** — **built-in, free** (engagement-letter PDF + clickwrap + typed signature + stored audit trail). Upgrade to Dropbox Sign / DocuSign only if a counterparty requires a formal envelope. ✅
-4. **Deposit** — **yes**, a refundable Stripe deposit at request (Phase 2). ✅
+4. **Deposit** — ~~refundable Stripe deposit at request~~ **dropped (2026-06-25).** No payment is taken on the website; the request goes straight to confirmation. (The `deposit_*`/`stripe_session` columns remain on the table, unused, in case this is revisited.)
 
 **Still open (gate go-live, not the build):**
 5. **Confirmation SLA** — what we promise on the confirmation screen (placeholder: "within 1 business day").
