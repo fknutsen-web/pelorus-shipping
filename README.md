@@ -8,16 +8,32 @@ to the browser and never floats around as a document.
 
 ## What's here
 ```
-index.html        Homepage (your approved design) with a "Pricing" nav link
-pricing.html      The live configurator — calls the API, contains NO rates
-api/quote.js      POST: computes a quote from server-side rates
-api/lead.js       POST: recomputes server-side, stores the lead (Supabase)
+index.html        Homepage with an "Engagement Models" nav link
+pricing.html      Engagement Models — an interactive "build your commercial
+                  freight desk" configurator. Holds NO rates; asks the server
+                  for an indicative figure and degrades gracefully offline.
+api/quote.js      POST: computes a quote from server-side rates (legacy calc)
+api/estimate.js   POST: maps a configurator config → indicative engagement fee
+api/lead.js       POST: recomputes server-side, stores the lead (Supabase).
+                  Accepts either the legacy calc input or the configurator config.
 lib/rates.js      ← YOUR PRIVATE RATE CARD. Edit here, redeploy. Server-only.
 lib/calc.js       Shared pricing logic (same math the internal tool uses)
+lib/estimate.js   Maps configurator selections → indicative "from" figure.
+                  Single integration point for real pricing / quoting logic.
 db/schema.sql     Supabase table for captured leads (RLS-locked)
 dev-server.mjs    Run locally without Vercel
 .env.example      Environment variables to set
 ```
+
+### Engagement Models page (pricing.html)
+An interactive configurator (Step 1–6: engagement type, cargo, modes, annual
+volume, commercial services, geographic scope) that shows an **indicative**
+engagement figure and a consultative "Book a Commercial Review" CTA instead of
+published prices. No pricing is hard-coded in the browser — the figure comes from
+`/api/estimate`, and the whole `config` object is exposed as `window.pelorusEngagement`
+so it can later be wired to CRM / HubSpot / Stripe / a client portal / automated
+proposal generation. On static hosting (no functions) it degrades to a graceful
+"prepared on your commercial review" state and the CTA falls back to email.
 
 ## Run locally
 ```

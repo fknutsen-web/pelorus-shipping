@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pelorus Shipping — Price Your Freight Desk</title>
+<title>Pelorus Shipping — Engagement Models</title>
+<meta name="description" content="Configure the independent commercial freight support you need. Pelorus Shipping is a commercial freight desk representing cargo owners — we procure, negotiate and manage freight without selling transportation or owning assets." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -10,198 +11,503 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0a2444;--ink:#0e2340;--gold:#b1864e;--gold-soft:#c6a472;--body:#54626f;--sea-1:#f4f7f9;--sea-2:#e8eff2;--line:#dde4e9;--green:#2f8f6b}
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',system-ui,sans-serif;color:var(--body);background:var(--sea-1);line-height:1.55}
-h1,h2,h3,h4,.eyebrow,.btn,.cardfee,.disp{font-family:'Figtree',system-ui,sans-serif}a{color:inherit;text-decoration:none}.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
-.nav{background:#fff;border-bottom:1px solid var(--line)}.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
-.brand{display:flex;align-items:center;gap:10px}.brand svg{width:34px;height:34px;color:var(--navy)}.brand .p{font-family:Figtree;font-weight:800;font-size:18px;letter-spacing:.14em;color:var(--navy);line-height:.9}.brand .s{font-family:Figtree;font-weight:600;font-size:8px;letter-spacing:.36em;color:var(--gold);margin-top:2px}
-.navlinks{display:flex;gap:26px;align-items:center}.navlinks a{font-family:Figtree;font-weight:600;font-size:13px;color:var(--ink)}.navlinks a:hover{color:var(--gold)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Mulish',system-ui,sans-serif;color:var(--body);background:var(--sea-1);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.eyebrow,.btn,.disp,.step-n,.opt h4,.pill,.sumval{font-family:'Figtree',system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+
+/* ---------- NAV ---------- */
+.nav{background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px}
+.brand{display:flex;align-items:center;gap:10px}.brand svg{width:34px;height:34px}
+.brand .p{font-family:Figtree;font-weight:800;font-size:18px;letter-spacing:.14em;color:var(--navy);line-height:.9}
+.brand .s{font-family:Figtree;font-weight:600;font-size:8px;letter-spacing:.36em;color:var(--gold);margin-top:2px}
+.navlinks{display:flex;gap:24px;align-items:center}
+.navlinks a{font-family:Figtree;font-weight:600;font-size:13px;color:var(--ink)}.navlinks a:hover{color:var(--gold)}
+.navlinks a.on{color:var(--gold)}
+.navlinks a.btn{background:var(--navy);color:#fff;padding:9px 16px;border-radius:6px}.navlinks a.btn:hover{background:#12335c;color:#fff}
 .menu-btn{display:none;background:none;border:0;cursor:pointer;color:var(--navy);padding:6px;margin:-6px}.menu-btn svg{width:28px;height:28px;display:block}
-.mobile-menu{display:none}.mobile-menu a{display:block;padding:13px 0;font-family:Figtree;font-weight:600;font-size:16px;color:var(--ink);border-top:1px solid var(--line)}.mobile-menu a:active{color:var(--gold)}
-.head{background:linear-gradient(180deg,#fff,var(--sea-1));padding:44px 0 28px;text-align:center}
-.eyebrow{font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.head h1{font-weight:800;font-size:clamp(28px,4vw,42px);color:var(--navy);letter-spacing:-.01em;margin:12px 0 8px}.head p{max-width:60ch;margin:0 auto;font-size:15px}
-.cfg{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px 26px;margin:26px auto 0;box-shadow:0 18px 44px -30px rgba(10,36,68,.35)}
-.cfg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
-.f label{display:block;font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:3px}.f .hint{font-weight:400;color:var(--body);font-size:11px}
-.f .val{font-family:Figtree;font-weight:800;font-size:22px;color:var(--navy);margin:6px 0 4px}input[type=range]{width:100%;accent-color:var(--gold);margin-top:4px}
-.numline{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:6px}.numline span{padding:0 9px;font-size:13px;color:var(--body);background:var(--sea-1);align-self:stretch;display:flex;align-items:center;border-right:1px solid var(--line)}.numline input{border:none;outline:none;padding:9px 10px;width:100%;font-size:14px;color:var(--ink);font-family:Mulish}.numline .suf{border-right:none;border-left:1px solid var(--line)}
-.tier-head{text-align:center;margin:38px 0 4px}.tier-head h2{font-weight:800;font-size:24px;color:var(--navy)}.tier-head p{font-size:13.5px;margin-top:4px}
-.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:24px}
-.card{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:24px 22px;cursor:pointer;position:relative;transition:.15s}.card:hover{border-color:var(--gold-soft)}.card.sel{border-color:var(--gold);box-shadow:0 0 0 3px rgba(177,134,78,.16)}
-.card .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-family:Figtree;font-weight:700;font-size:10px;letter-spacing:.1em;padding:4px 12px;border-radius:20px;white-space:nowrap}
-.card .ct{font-family:Figtree;font-weight:700;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}.card h3{font-weight:800;font-size:19px;color:var(--navy);margin:6px 0 12px}
-.card .cardfee{font-weight:800;font-size:30px;color:var(--navy);letter-spacing:-.02em}.card .per{font-size:12px;margin-top:2px}.card .eff{font-family:Figtree;font-weight:700;font-size:13px;color:var(--gold);margin-top:10px}
-.card .efee{font-size:11.5px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);line-height:1.4}.card .efee b{font-family:Figtree;color:var(--ink)}
-.detail{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px;margin-top:22px}.detail h3{font-weight:800;color:var(--navy);font-size:18px}
-.calc{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:16px 0}.calc .ch{background:var(--navy);color:#fff;font-family:Figtree;font-weight:700;font-size:11.5px;letter-spacing:.1em;padding:10px 16px}
-.row{display:flex;justify-content:space-between;padding:9px 16px;font-size:13px;border-top:1px solid var(--line)}.row .v{font-family:Figtree;font-weight:600;color:var(--ink)}.row.tot{background:var(--sea-1)}.row.tot .l{font-family:Figtree;font-weight:700;color:var(--navy)}.row.tot .v{font-weight:800;color:var(--navy)}
-.strip{border-radius:8px;padding:16px 18px;margin-top:14px;font-size:13px;line-height:1.5}.strip.gold{background:#fbf4e9;border:1px solid #e7cfa3}.strip.green{background:#eef6f1;border:1px solid #bfe0cf}
-.strip .st{font-family:Figtree;font-weight:800;font-size:13px;margin-bottom:3px}.strip.gold .st{color:#8a5e16}.strip.green .st{color:#1f6a4e}.strip .bign{font-family:Figtree;font-weight:800;font-size:20px}.strip.green .bign{color:var(--green)}.strip.gold .bign{color:var(--gold)}
-.bars{margin-top:18px}.barrow{margin-bottom:13px}.barrow .bl{display:flex;justify-content:space-between;font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:5px}
-.bar{height:28px;border-radius:5px;background:var(--sea-2);overflow:hidden}.bar .fill{height:100%;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-family:Figtree;font-weight:700;font-size:12px;min-width:50px}.fill.ih{background:linear-gradient(90deg,#3a4f66,#243a52)}.fill.pel{background:linear-gradient(90deg,var(--gold),#9c7540)}
-.cta{text-align:center;margin-top:24px}.btn{display:inline-block;font-family:Figtree;font-weight:700;font-size:15px;padding:15px 30px;border-radius:6px;background:var(--gold);color:#fff;border:none;cursor:pointer}.btn:hover{background:#9c7540}.cta .micro{font-size:12px;margin-top:10px}
-.disc{font-size:11px;color:#8a97a1;line-height:1.5;margin-top:18px;text-align:center;max-width:80ch;margin:18px auto 0}
-footer{background:var(--navy);color:#9fb0c3;padding:24px 0;margin-top:50px;font-family:Figtree;font-weight:600;font-size:11px;letter-spacing:.18em;text-align:center}
-@media(max-width:860px){.cfg-grid,.cards{grid-template-columns:1fr}.navlinks{display:none}.menu-btn{display:block}.mobile-menu.open{display:block;padding-bottom:10px}}
-/* commit modal */
-.modal{position:fixed;inset:0;background:rgba(10,36,68,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.on{display:flex}
-.mbox{background:#fff;border-radius:10px;max-width:420px;width:100%;padding:26px}.mbox h3{color:var(--navy);font-size:18px;margin-bottom:6px}.mbox p{font-size:13px;margin-bottom:14px}
-.mbox .numline{margin-bottom:10px}.mbox .row2{display:flex;gap:10px}.mok{font-size:13px;color:var(--green);font-family:Figtree;font-weight:700}
-.eng-only{display:none}.modal.engage .eng-only{display:block}
-.clickwrap{display:flex;gap:8px;align-items:flex-start;font-size:11.5px;color:var(--ink);margin:2px 0 12px;cursor:pointer;line-height:1.45}.clickwrap input{margin-top:2px;width:15px;height:15px;accent-color:var(--gold);flex:0 0 auto}.clickwrap b{font-family:Figtree;color:var(--navy)}
-.mref{font-family:Figtree;font-weight:800;color:var(--navy)}
+.mobile-menu{display:none;padding:0 28px}.mobile-menu a{display:block;padding:13px 0;font-family:Figtree;font-weight:600;font-size:16px;color:var(--ink);border-top:1px solid var(--line)}
+
+/* ---------- HERO ---------- */
+.hero{background:radial-gradient(1200px 500px at 80% -10%,rgba(177,134,78,.16),transparent 60%),linear-gradient(180deg,#0a2444,#0e2a4e)}
+.hero .wrap{padding:66px 28px 60px;text-align:center;color:#dfe8f2}
+.hero .eyebrow{color:var(--gold-soft);font-weight:700;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.hero h1{font-weight:800;font-size:clamp(32px,5vw,54px);color:#fff;letter-spacing:-.02em;line-height:1.05;margin:16px 0 14px}
+.hero h1 em{font-style:normal;color:var(--gold-soft)}
+.hero p.sub{max-width:60ch;margin:0 auto;font-size:16px;color:#c4d2e2}
+.pos{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.pos span{font-family:Figtree;font-weight:600;font-size:12px;color:#cdd9e6;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:7px 14px}
+.pos span b{color:#fff;font-weight:700}
+
+/* ---------- CONFIGURATOR LAYOUT ---------- */
+.cfgwrap{display:grid;grid-template-columns:1fr 372px;gap:36px;align-items:start;padding:44px 28px 24px;max-width:1160px;margin:0 auto}
+.steps{min-width:0}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;margin-bottom:20px;box-shadow:0 20px 46px -34px rgba(10,36,68,.4)}
+.step-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.step-n{font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--gold);flex:0 0 auto}
+.step h2{font-weight:800;font-size:20px;color:var(--navy);letter-spacing:-.01em}
+.step .sh{font-size:13px;color:var(--body);margin:2px 0 18px}
+
+/* selection cards (step 1) */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.opt{border:1.5px solid var(--line);border-radius:12px;padding:18px 18px;cursor:pointer;transition:transform .16s ease,border-color .16s,box-shadow .16s,background .16s;position:relative;background:#fff}
+.opt:hover{border-color:var(--gold-soft);transform:translateY(-2px)}
+.opt.sel{border-color:var(--gold);background:#fdfaf4;box-shadow:0 0 0 3px rgba(177,134,78,.15)}
+.opt .oi{width:34px;height:34px;color:var(--gold);margin-bottom:10px}
+.opt h4{font-weight:800;font-size:16px;color:var(--navy);margin-bottom:5px}
+.opt p{font-size:12.5px;line-height:1.45;color:var(--body)}
+.opt .tick{position:absolute;top:14px;right:14px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;transition:.16s}
+.opt.sel .tick{background:var(--gold);border-color:var(--gold)}
+.opt .tick svg{width:12px;height:12px;color:#fff;opacity:0;transition:.16s}
+.opt.sel .tick svg{opacity:1}
+
+/* pills (multi-select) */
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{font-weight:600;font-size:13.5px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:10px 16px;cursor:pointer;transition:.14s;display:flex;align-items:center;gap:8px;user-select:none}
+.pill:hover{border-color:var(--gold-soft)}
+.pill.sel{border-color:var(--gold);background:#fdf7ee;color:var(--navy)}
+.pill .pk{width:15px;height:15px;border-radius:5px;border:1.5px solid var(--line);display:inline-flex;align-items:center;justify-content:center;transition:.14s}
+.pill.sel .pk{background:var(--gold);border-color:var(--gold)}
+.pill .pk svg{width:10px;height:10px;color:#fff;opacity:0}.pill.sel .pk svg{opacity:1}
+
+/* volume slider */
+.vol .volnow{font-family:Figtree;font-weight:800;font-size:26px;color:var(--navy);letter-spacing:-.01em;margin-bottom:2px}
+.vol .volsub{font-size:12.5px;color:var(--body);margin-bottom:16px}
+.vol input[type=range]{width:100%;accent-color:var(--gold);height:6px}
+.vol .ticks{display:flex;justify-content:space-between;margin-top:10px;gap:4px}
+.vol .ticks span{font-family:Figtree;font-weight:600;font-size:10.5px;color:#8a97a1;flex:1;text-align:center}
+.vol .ticks span.on{color:var(--gold)}
+
+/* geo grid */
+.geo{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.geo .opt{padding:16px 14px;text-align:center}
+.geo .opt .oi{margin:0 auto 8px}
+.geo .opt h4{font-size:14px;margin-bottom:0}
+
+/* ---------- SUMMARY / ESTIMATE PANEL ---------- */
+.summary{position:sticky;top:88px}
+.sumcard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 60px -36px rgba(10,36,68,.5)}
+.sumtop{background:linear-gradient(180deg,#0a2444,#123255);color:#fff;padding:22px 24px}
+.sumtop .lab{font-family:Figtree;font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft)}
+.sumtop .est{display:flex;align-items:baseline;gap:8px;margin-top:8px;flex-wrap:wrap}
+.sumtop .big{font-family:Figtree;font-weight:800;font-size:38px;letter-spacing:-.02em;line-height:1}
+.sumtop .from{font-family:Figtree;font-weight:700;font-size:11px;color:#a9bcd2;text-transform:uppercase;letter-spacing:.1em}
+.sumtop .per{font-size:12.5px;color:#c4d2e2;margin-top:6px}
+.sumtop .pending{font-family:Figtree;font-weight:800;font-size:19px;line-height:1.25}
+.sumbody{padding:18px 24px 22px}
+.sumrow{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:12.5px}
+.sumrow:first-child{border-top:none}
+.sumrow .k{color:var(--body);flex:0 0 auto}
+.sumrow .sumval{font-weight:600;color:var(--ink);text-align:right}
+.note{font-size:11px;color:#8a97a1;line-height:1.5;margin-top:14px}
+.sumcta{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:Figtree;font-weight:700;font-size:14.5px;padding:14px 20px;border-radius:8px;border:none;cursor:pointer;transition:.15s;text-align:center}
+.btn.gold{background:var(--gold);color:#fff}.btn.gold:hover{background:#9c7540}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}.btn.ghost:hover{border-color:var(--gold-soft)}
+.trust{font-size:11px;color:#8a97a1;text-align:center;margin-top:12px;line-height:1.5}
+
+/* ---------- SECTIONS ---------- */
+.sec{padding:64px 0}
+.sec-head{text-align:center;max-width:64ch;margin:0 auto 34px}
+.sec-head .eyebrow{color:var(--gold);font-weight:700;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.sec-head h2{font-weight:800;font-size:clamp(24px,3.4vw,34px);color:var(--navy);letter-spacing:-.01em;margin:12px 0 8px}
+.sec-head p{font-size:15px}
+.models{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.model{background:#fff;border:1px solid var(--line);border-top:2.5px solid var(--gold);border-radius:10px;padding:24px 22px;transition:.16s}
+.model:hover{transform:translateY(-3px);box-shadow:0 22px 46px -30px rgba(10,36,68,.4)}
+.model .mi{width:30px;height:30px;color:var(--gold);margin-bottom:12px}
+.model h3{font-weight:800;font-size:17px;color:var(--navy);margin-bottom:8px;line-height:1.15}
+.model p{font-size:13px;line-height:1.5}
+.model ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
+.model li{font-size:12.5px;color:var(--body);padding-left:16px;position:relative;line-height:1.4}
+.model li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg)}
+
+.how{background:linear-gradient(180deg,#0a2444,#0e2a4e);color:#dfe8f2}
+.how .sec-head h2{color:#fff}.how .sec-head .eyebrow{color:var(--gold-soft)}.how .sec-head p{color:#c4d2e2}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:0 auto}
+.prin{border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:20px 20px;background:rgba(255,255,255,.03)}
+.prin .pn{font-family:Figtree;font-weight:800;font-size:12px;color:var(--gold-soft);letter-spacing:.1em}
+.prin h4{font-family:Figtree;font-weight:700;font-size:15px;color:#fff;margin:8px 0 6px}
+.prin p{font-size:13px;color:#bccadb;line-height:1.5}
+
+footer{background:#08203c;color:#9fb0c3;padding:26px 0;font-family:Figtree;font-weight:600;font-size:11px;letter-spacing:.16em;text-align:center;line-height:1.9}
+footer a{color:var(--gold-soft)}
+
+/* ---------- MODAL ---------- */
+.modal{position:fixed;inset:0;background:rgba(10,36,68,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal.on{display:flex}
+.mbox{background:#fff;border-radius:14px;max-width:460px;width:100%;padding:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.5)}
+.mbox h3{color:var(--navy);font-size:20px;font-family:Figtree;font-weight:800;margin-bottom:4px}
+.mbox .msub{font-size:13px;margin-bottom:16px}
+.field{margin-bottom:10px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 13px;font-family:Mulish;font-size:14px;color:var(--ink);outline:none;transition:.14s}
+.field input:focus,.field textarea:focus{border-color:var(--gold-soft);box-shadow:0 0 0 3px rgba(177,134,78,.12)}
+.field textarea{resize:vertical;min-height:70px}
+.mrow{display:flex;gap:10px;margin-top:6px}
+.mok{font-size:13px;color:var(--green);font-family:Figtree;font-weight:700;line-height:1.5}
+.merr{font-size:13px;color:#b04a36;font-family:Figtree;font-weight:600;line-height:1.5}
+.mclose{background:none;border:none;font-size:22px;color:#98a6b2;cursor:pointer;float:right;line-height:1;margin:-4px -4px 0}
+
+@media(max-width:960px){
+  .cfgwrap{grid-template-columns:1fr}
+  .summary{position:static;margin-top:4px}
+  .models{grid-template-columns:1fr 1fr}
+  .principles{grid-template-columns:1fr}
+  .navlinks{display:none}.menu-btn{display:block}.mobile-menu.open{display:block;padding-bottom:10px}
+}
+@media(max-width:560px){
+  .opts{grid-template-columns:1fr}.geo{grid-template-columns:1fr 1fr}.models{grid-template-columns:1fr}
+  .vol .ticks span{font-size:9px}
+}
 </style></head><body>
-<svg width="0" height="0" style="position:absolute"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".5"/><polygon points="50,9 56,46 91,50 56,54 50,91 44,54 9,50 44,46" fill="currentColor" opacity=".3" transform="rotate(45 50 50)"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/><circle cx="50" cy="50" r="4.4" fill="currentColor"/></symbol><symbol id="flag" viewBox="0 0 100 100"><line x1="35" y1="16" x2="35" y2="86" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M35 26 L84 37.5 L70 50 L84 62.5 L35 53 Z" fill="currentColor"/><circle cx="35" cy="16" r="4" fill="currentColor"/></symbol></svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></symbol>
+ <symbol id="i-ship" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l1.5 5h15L21 15"/><path d="M5 15V9h14v6"/><path d="M12 3v6"/><path d="M8 9V6h8v3"/></symbol>
+ <symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
+ <symbol id="i-desk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7l9-4 9 4v14"/><path d="M3 21h18"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01"/></symbol>
+ <symbol id="i-advisory" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></symbol>
+ <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h13l-2 4 2 4H4"/></symbol>
+</svg>
 
 <div class="nav">
  <div class="wrap">
   <a class="brand" href="index.html"><svg viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#0a2342"/><line x1="31" y1="20" x2="31" y2="84" stroke="#c39a5d" stroke-width="3.2" stroke-linecap="round"/><circle cx="31" cy="18" r="4" fill="#c39a5d"/><path d="M31 25 L84 32.5 L68.5 42 L84 51.5 L31 59 Z" fill="#f4f1ea"/><text x="44.5" y="49" font-family="Georgia,serif" font-size="24" font-weight="600" fill="#0a2342" text-anchor="middle">P</text></svg><div><div class="p">PELORUS</div><div class="s">SHIPPING</div></div></a>
-  <div class="navlinks"><a href="index.html">Home</a><a href="index.html#services">What we do</a><a href="pricing.html">Pricing</a><a href="index.html#careers">Careers</a><a href="index.html#contact">Contact</a></div>
+  <div class="navlinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">What We Do</a>
+    <a href="pricing.html" class="on">Engagement Models</a>
+    <a href="index.html#careers">Careers</a>
+    <a href="#book" class="btn">Book a Commercial Review</a>
+  </div>
   <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
  </div>
- <div class="wrap mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a><a href="index.html#services">What we do</a><a href="pricing.html">Pricing</a><a href="index.html#careers">Careers</a><a href="index.html#contact">Contact</a>
+ <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#services">What We Do</a><a href="pricing.html">Engagement Models</a><a href="index.html#careers">Careers</a><a href="#book">Book a Commercial Review</a>
  </div>
 </div>
 
-<div class="head"><div class="wrap">
-  <div class="eyebrow">Price your freight desk</div>
-  <h1>See your fee — and what it replaces.</h1>
-  <p>Enter your cargo profile. We'll show your indicative fee at each level of commitment, what an in-house desk would cost you instead, and the freight savings we'd target on top.</p>
-  <div class="cfg"><div class="cfg-grid">
-     <div class="f"><label>Annual cargo <span class="hint">freight tonnes / year</span></label><div class="val" id="tonVal">180,000 t</div><input type="range" id="ton" min="10000" max="600000" step="5000" value="180000" oninput="onInput()"></div>
-     <div class="f"><label>Shipments per year</label><div class="val" id="voyVal">12</div><input type="range" id="voy" min="1" max="60" step="1" value="12" oninput="onInput()"></div>
-     <div class="f"><label>Your benchmark freight rate <span class="hint">current / market $ per tonne (optional)</span></label><div class="numline"><span>$</span><input type="number" id="bench" value="42" oninput="onInput()"><span class="suf">/t</span></div><div class="hint" style="margin-top:6px">Used only to estimate potential savings — leave as-is if unsure.</div></div>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Engagement Models</div>
+  <h1>Build your <em>commercial freight desk.</em></h1>
+  <p class="sub">Configure the independent commercial support you need — no sales calls to get started. Pelorus procures, negotiates and manages your freight while coordinating the best execution partners available.</p>
+  <div class="pos">
+    <span>We <b>don't sell</b> transportation</span>
+    <span>We own <b>no vessels, terminals or warehouses</b></span>
+    <span>We represent <b>cargo owners</b> only</span>
   </div>
-  <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line)">
-    <div style="font-family:Figtree;font-weight:700;font-size:12px;color:var(--ink);margin-bottom:3px">Logistics contracts to negotiate <span style="font-weight:400;color:var(--body)">(optional — ocean, barge, rail, road, terminal &amp; storage)</span></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px">
-      <div class="f"><label style="font-weight:600;font-size:11.5px">Simple rate negotiations <span class="hint">trucking lane, spot storage</span></label><div class="numline"><input type="number" id="lc" value="0" min="0" oninput="onInput()"></div></div>
-      <div class="f"><label style="font-weight:600;font-size:11.5px">Structured agreements <span class="hint">multi-year rail, terminal services</span></label><div class="numline"><input type="number" id="sc" value="0" min="0" oninput="onInput()"></div></div>
-    </div>
-  </div></div>
-</div></div>
+</div></header>
 
-<div class="wrap">
- <div class="tier-head"><h2>Choose your commitment</h2><p>The service is the same at every level — one integrated desk, fix to discharge. Commit deeper, pay less per tonne, and pay the engagement fee only once.</p></div>
- <div class="cards" id="cards"></div>
- <div class="detail" id="detail"></div>
- <div class="disc" id="disc"></div>
+<div class="cfgwrap">
+ <!-- STEPS -->
+ <div class="steps">
+
+  <div class="step">
+   <div class="step-head"><span class="step-n">STEP 1</span><h2>How would you like to work with Pelorus?</h2></div>
+   <p class="sh">Choose the engagement that fits how you move cargo today. You can evolve it over time.</p>
+   <div class="opts" id="engagement" data-single="1">
+     <div class="opt" data-val="single"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-ship"/></svg><h4>Single Shipment</h4><p>One-off commercial management of a specific cargo, end to end.</p></div>
+     <div class="opt" data-val="recurring"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-repeat"/></svg><h4>Recurring Shipping Program</h4><p>Ongoing management of a repeating cargo flow on agreed lanes.</p></div>
+     <div class="opt" data-val="desk"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-desk"/></svg><h4>Outsourced Commercial Freight Desk</h4><p>Your standing commercial department — Pelorus as an extension of your team.</p></div>
+     <div class="opt" data-val="advisory"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-advisory"/></svg><h4>Strategic Advisory</h4><p>Trade-lane, terminal, due-diligence and supply-chain strategy work.</p></div>
+   </div>
+  </div>
+
+  <div class="step">
+   <div class="step-head"><span class="step-n">STEP 2</span><h2>What cargo do you move?</h2></div>
+   <p class="sh">Select all that apply.</p>
+   <div class="pills" id="cargo">
+     <div class="pill" data-val="bulk"><span class="pk"><svg><use href="#i-check"/></svg></span>Bulk</div>
+     <div class="pill" data-val="breakbulk"><span class="pk"><svg><use href="#i-check"/></svg></span>Breakbulk</div>
+     <div class="pill" data-val="project"><span class="pk"><svg><use href="#i-check"/></svg></span>Project Cargo</div>
+     <div class="pill" data-val="general"><span class="pk"><svg><use href="#i-check"/></svg></span>General Cargo</div>
+   </div>
+  </div>
+
+  <div class="step">
+   <div class="step-head"><span class="step-n">STEP 3</span><h2>Transportation modes</h2></div>
+   <p class="sh">Select every mode in your chain. We coordinate the execution partners.</p>
+   <div class="pills" id="modes">
+     <div class="pill" data-val="ocean"><span class="pk"><svg><use href="#i-check"/></svg></span>Ocean Freight</div>
+     <div class="pill" data-val="barge"><span class="pk"><svg><use href="#i-check"/></svg></span>Barge</div>
+     <div class="pill" data-val="rail"><span class="pk"><svg><use href="#i-check"/></svg></span>Rail</div>
+     <div class="pill" data-val="road"><span class="pk"><svg><use href="#i-check"/></svg></span>Road</div>
+     <div class="pill" data-val="terminal"><span class="pk"><svg><use href="#i-check"/></svg></span>Terminal</div>
+     <div class="pill" data-val="storage"><span class="pk"><svg><use href="#i-check"/></svg></span>Storage</div>
+   </div>
+  </div>
+
+  <div class="step vol">
+   <div class="step-head"><span class="step-n">STEP 4</span><h2>Estimated annual volume</h2></div>
+   <p class="sh">Approximate total tonnage across your supply chain.</p>
+   <div class="volnow" id="volNow">100,000 – 500,000 MT</div>
+   <div class="volsub">Drag to adjust — this shapes the commercial scope, not a commitment.</div>
+   <input type="range" id="volRange" min="0" max="5" step="1" value="2" aria-label="Estimated annual volume">
+   <div class="ticks" id="volTicks">
+     <span>&lt;25k</span><span>25–100k</span><span>100–500k</span><span>500k–1M</span><span>1–5M</span><span>5M+</span>
+   </div>
+  </div>
+
+  <div class="step">
+   <div class="step-head"><span class="step-n">STEP 5</span><h2>Commercial services required</h2></div>
+   <p class="sh">Select the commercial work you want Pelorus to own.</p>
+   <div class="pills" id="services">
+     <div class="pill" data-val="procurement"><span class="pk"><svg><use href="#i-check"/></svg></span>Freight Procurement</div>
+     <div class="pill" data-val="chartering"><span class="pk"><svg><use href="#i-check"/></svg></span>Vessel Chartering</div>
+     <div class="pill" data-val="coa"><span class="pk"><svg><use href="#i-check"/></svg></span>COA Development &amp; Management</div>
+     <div class="pill" data-val="market"><span class="pk"><svg><use href="#i-check"/></svg></span>Market Intelligence</div>
+     <div class="pill" data-val="benchmark"><span class="pk"><svg><use href="#i-check"/></svg></span>Freight Benchmarking</div>
+     <div class="pill" data-val="tender"><span class="pk"><svg><use href="#i-check"/></svg></span>Tender Management</div>
+     <div class="pill" data-val="terminal-neg"><span class="pk"><svg><use href="#i-check"/></svg></span>Terminal Negotiations</div>
+     <div class="pill" data-val="storage-strat"><span class="pk"><svg><use href="#i-check"/></svg></span>Storage Strategy</div>
+     <div class="pill" data-val="rail-coord"><span class="pk"><svg><use href="#i-check"/></svg></span>Rail Coordination</div>
+     <div class="pill" data-val="barge-coord"><span class="pk"><svg><use href="#i-check"/></svg></span>Barge Coordination</div>
+     <div class="pill" data-val="project-plan"><span class="pk"><svg><use href="#i-check"/></svg></span>Project Cargo Planning</div>
+     <div class="pill" data-val="optimization"><span class="pk"><svg><use href="#i-check"/></svg></span>Supply Chain Optimization</div>
+     <div class="pill" data-val="representation"><span class="pk"><svg><use href="#i-check"/></svg></span>Commercial Representation</div>
+     <div class="pill" data-val="reporting"><span class="pk"><svg><use href="#i-check"/></svg></span>Performance Reporting</div>
+   </div>
+  </div>
+
+  <div class="step">
+   <div class="step-head"><span class="step-n">STEP 6</span><h2>Geographic scope</h2></div>
+   <p class="sh">Where does your cargo move?</p>
+   <div class="geo" id="geo" data-single="1">
+     <div class="opt" data-val="domestic"><svg class="oi"><use href="#i-pin"/></svg><h4>Domestic</h4></div>
+     <div class="opt" data-val="north-america"><svg class="oi"><use href="#i-flag"/></svg><h4>North America</h4></div>
+     <div class="opt" data-val="international"><svg class="oi"><use href="#i-ship"/></svg><h4>International</h4></div>
+     <div class="opt" data-val="worldwide"><svg class="oi"><use href="#i-globe"/></svg><h4>Worldwide</h4></div>
+   </div>
+  </div>
+
+ </div>
+
+ <!-- SUMMARY / ESTIMATE -->
+ <aside class="summary">
+  <div class="sumcard" id="book">
+   <div class="sumtop">
+     <div class="lab" id="estLabel">Estimated Monthly Commercial Retainer</div>
+     <div class="est" id="estMain">
+       <span class="from">From</span><span class="big" id="estBig">—</span>
+     </div>
+     <div class="per" id="estPer">Configure your engagement to see an indicative figure.</div>
+   </div>
+   <div class="sumbody">
+     <div class="sumrow"><span class="k">Engagement</span><span class="sumval" id="sEng">Outsourced Freight Desk</span></div>
+     <div class="sumrow"><span class="k">Cargo</span><span class="sumval" id="sCargo">—</span></div>
+     <div class="sumrow"><span class="k">Modes</span><span class="sumval" id="sModes">—</span></div>
+     <div class="sumrow"><span class="k">Annual volume</span><span class="sumval" id="sVol">100,000 – 500,000 MT</span></div>
+     <div class="sumrow"><span class="k">Services</span><span class="sumval" id="sSvc">—</span></div>
+     <div class="sumrow"><span class="k">Scope</span><span class="sumval" id="sGeo">International</span></div>
+     <p class="note">Final pricing depends on cargo complexity, shipment frequency and commercial scope. Figures are indicative and confirmed during your commercial review — not a quote or an offer.</p>
+     <div class="sumcta">
+       <button class="btn gold" onclick="openBook()">Book a Commercial Review →</button>
+       <a class="btn ghost" href="mailto:contact@pelorusshipping.com?subject=Discuss%20our%20supply%20chain">Discuss Your Supply Chain</a>
+     </div>
+     <p class="trust">Independent · No freight spreads · No carrier commissions</p>
+   </div>
+  </div>
+ </aside>
 </div>
 
-<div class="modal" id="modal"><div class="mbox">
-  <h3 id="mtitle">Request a firm proposal</h3><p id="mdesc"></p>
-  <div class="numline"><input type="text" id="m_name" placeholder="Your name"></div>
-  <div class="numline"><input type="text" id="m_co" placeholder="Company"></div>
-  <div class="numline"><input type="email" id="m_email" placeholder="Work email"></div>
-  <div class="eng-only">
-    <div class="numline"><input type="tel" id="m_phone" placeholder="Phone"></div>
-    <div class="numline"><input type="text" id="m_lane" placeholder="Lane(s) — e.g. US Gulf–WCSA"></div>
-    <label class="clickwrap"><input type="checkbox" id="m_agree"><span>I understand this is a request for a <b>single-voyage</b> engagement at an <b>indicative</b> fee; Pelorus will confirm the fee against my actual cargo and lanes, and a binding agreement is formed only on a signed engagement letter.</span></label>
+<!-- ENGAGEMENT MODELS -->
+<section class="sec">
+ <div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Ways to engage</span>
+    <h2>Four ways to access an independent freight desk.</h2>
+    <p>The commercial discipline is the same at every level. What changes is how deeply Pelorus is embedded in your organisation.</p>
   </div>
-  <div class="row2"><button class="btn" id="m_submit" style="flex:1" onclick="submitModal()">Send request</button><button class="btn" style="flex:0 0 auto;background:#fff;color:var(--navy);border:1px solid var(--line)" onclick="closeModal()">Cancel</button></div>
-  <div id="mstatus" style="margin-top:10px"></div>
+  <div class="models">
+    <div class="model"><svg class="mi"><use href="#i-ship"/></svg><h3>Voyage Support</h3><p>Ideal for one-off shipments — end-to-end commercial management of a single cargo.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-repeat"/></svg><h3>Recurring Programs</h3><p>For ongoing imports and exports across agreed lanes and repeating cargo flows.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-desk"/></svg><h3>Outsourced Commercial Freight Desk</h3><p>Pelorus becomes an extension of your commercial organisation — your standing desk.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-advisory"/></svg><h3>Strategic Advisory</h3><ul><li>Trade lane development</li><li>Terminal evaluations</li><li>Commercial due diligence</li><li>Supply chain strategy</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="sec how">
+ <div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">How we work</span>
+    <h2>Independent by design.</h2>
+    <p>We represent cargo owners — and only cargo owners. That independence is what makes our advice worth having.</p>
+  </div>
+  <div class="principles">
+    <div class="prin"><div class="pn">01</div><h4>No freight spreads</h4><p>We don't trade freight or take the other side of your cargo. We buy freight for you, never from you.</p></div>
+    <div class="prin"><div class="pn">02</div><h4>No hidden commissions</h4><p>No carrier commissions, terminal rebates or referral fees. Our only revenue is the fee you agree with us.</p></div>
+    <div class="prin"><div class="pn">03</div><h4>No asset bias</h4><p>We own no vessels, terminals or warehouses, so no recommendation is ever driven by filling our own capacity.</p></div>
+    <div class="prin"><div class="pn">04</div><h4>Transparent alignment</h4><p>One interest only — yours. Every decision is measured against commercial performance, not utilisation.</p></div>
+    <div class="prin"><div class="pn">05</div><h4>Best execution</h4><p>We coordinate the strongest execution partners in the market rather than selling you our own.</p></div>
+    <div class="prin"><div class="pn">06</div><h4>One point of responsibility</h4><p>From a single voyage to a full COA programme, one desk owns the commercial outcome end to end.</p></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+  PELORUS · SHIPPING — THE COMMERCIAL FREIGHT DESK BEHIND INDUSTRIAL SUPPLY CHAINS<br>
+  OCEAN · BARGE · RAIL · ROAD · TERMINAL &amp; STORAGE — <a href="mailto:contact@pelorusshipping.com">contact@pelorusshipping.com</a>
+</footer>
+
+<!-- BOOK MODAL -->
+<div class="modal" id="modal"><div class="mbox">
+  <button class="mclose" onclick="closeBook()" aria-label="Close">&times;</button>
+  <h3>Book a Commercial Review</h3>
+  <p class="msub">A short, consultative call — we'll pressure-test your configuration and come back with a firm view. No obligation.</p>
+  <div class="field"><input type="text" id="m_name" placeholder="Your name"></div>
+  <div class="field"><input type="text" id="m_co" placeholder="Company"></div>
+  <div class="field"><input type="email" id="m_email" placeholder="Work email"></div>
+  <div class="field"><input type="tel" id="m_phone" placeholder="Phone (optional)"></div>
+  <div class="field"><textarea id="m_msg" placeholder="Anything specific about your cargo, lanes or supply chain? (optional)"></textarea></div>
+  <div class="mrow">
+    <button class="btn gold" style="flex:1" id="m_submit" onclick="submitBook()">Send request</button>
+    <button class="btn ghost" style="flex:0 0 auto" onclick="closeBook()">Cancel</button>
+  </div>
+  <div id="mstatus" style="margin-top:12px"></div>
 </div></div>
 
-<footer>PELORUS · SHIPPING — OCEAN · BARGE · RAIL · ROAD · TERMINAL &amp; STORAGE — INDEPENDENT LOGISTICS COMMERCIAL DESK</footer>
-
 <script>
-var sel='desk', Q=null, timer=null;
-var $=function(id){return document.getElementById(id)};
-function input(){return {annualTonnes:+$('ton').value, shipments:+$('voy').value, benchmark:+$('bench').value, lightContracts:+($('lc')?$('lc').value:0), structuredContracts:+($('sc')?$('sc').value:0)}}
-function f0(n){return (Q?Q.currency:'$')+Math.round(n).toLocaleString('en-US')}
-function f2(n){return (Q?Q.currency:'$')+(+n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
-function onInput(){$('tonVal').textContent=(+$('ton').value).toLocaleString()+' t';$('voyVal').textContent=+$('voy').value;clearTimeout(timer);timer=setTimeout(fetchQuote,150)}
-async function fetchQuote(){
-  try{
-    var r=await fetch('/api/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input())});
-    Q=await r.json(); render();
-  }catch(e){ $('detail').innerHTML='<p style="color:#b04a36">Could not reach the pricing service. (Deploy the API, or run the dev server.)</p>'; }
-}
-function pick(k){sel=k;render()}
-function render(){
-  if(!Q||!Q.tiers) return;
-  var html='';
-  Q.tiers.forEach(function(t){
-    html+='<div class="card '+(t.key===sel?'sel':'')+'" onclick="pick(\''+t.key+'\')">';
-    if(t.key===Q.bestKey) html+='<div class="badge">BEST VALUE AT YOUR VOLUME</div>';
-    html+='<div class="ct">'+t.tagline+'</div><h3>'+t.name+'</h3>';
-    html+='<div class="cardfee">'+f0(t.annual)+'</div><div class="per">per year, all in</div>';
-    html+='<div class="eff">'+f2(t.perTon)+' / tonne effective</div>';
-    html+='<div class="efee">'+(t.engOnce?'Engagement fee <b>'+f0(Q.engagementFee)+', paid once</b>':'Engagement fee <b>'+f0(Q.engagementFee)+' every voyage</b> ('+f0(t.engPerYear)+'/yr)')+'</div></div>';
-  });
-  $('cards').innerHTML=html;
+/* =====================================================================
+   Engagement configurator — holds NO pricing. The indicative figure is
+   requested from /api/estimate (rate card stays server-side). When no API
+   is available (e.g. static hosting) the page degrades to a graceful
+   "prepared on your review" state and the CTA still works via /api/lead
+   or a mailto fallback. Integration points for CRM / HubSpot / Stripe /
+   client portal / proposal generation all hang off the `config` object.
+   ===================================================================== */
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
 
-  var t=Q.tiers.filter(function(x){return x.key===sel})[0], single=Q.tiers[0], ton=Q.input.annualTonnes, voy=Q.input.shipments;
-  var d='<h3>'+t.name+' — '+f0(t.annual)+' / year</h3>';
-  d+='<div class="calc"><div class="ch">HOW YOUR FEE IS CALCULATED</div>';
-  if(t.key==='spot'){d+=row('Fee per shipment',f0(t.perShip));d+=row('Engagement fee, each voyage',f0(Q.engagementFee));d+=row('Per shipment',f0(t.perShip+Q.engagementFee));d+=rowTot('Annual ('+voy+' shipments)',f0(t.annual));}
-  else if(t.key==='recur'){d+=row('Committed per-tonne × annual cargo',f0(t.annual-Q.engagementFee));d+=row('Engagement fee (once)',f0(Q.engagementFee));d+=rowTot('Annual fee',f0(t.annual));}
-  else {d+=row('Standing-desk retainer + committed per-tonne',f0(t.annual-Q.engagementFee));d+=row('Engagement fee (once, '+Q.deskTerm+'-yr term)',f0(Q.engagementFee));d+=rowTot('Year-1 fee',f0(t.annual));}
-  d+=row('Effective rate',f2(t.perTon)+' / t')+'</div>';
-  if(t.engOnce){var saved=single.engPerYear-t.engPerYear;d+='<div class="strip gold"><div class="st">Why committing pays — engagement fees</div>Run these '+voy+' shipments as one-offs and the '+f0(Q.engagementFee)+' engagement fee applies every time — <b>'+f0(single.engPerYear)+' a year in setup alone</b>. On '+t.name.toLowerCase()+' you pay it once. <span class="bign">You save '+f0(saved)+'</span> in engagement fees by committing.</div>';}
-  if(Q.freight){d+='<div class="strip green"><div class="st">Potential freight savings — a bonus, not a guarantee</div>If we beat your '+f2(Q.freight.benchmark)+'/t benchmark by our target '+Q.freight.cutLow+'–'+Q.freight.cutHigh+'%, that is '+f2(Q.freight.low)+'–'+f2(Q.freight.high)+'/t — <span class="bign">'+f0(Q.freight.annualLow)+'–'+f0(Q.freight.annualHigh)+' / year</span>. You pay the same fee whether or not we beat it; savings are upside you keep.</div>';}
-  if(Q.contracts){
-    var c=Q.contracts, parts=[];
-    if(c.lightN) parts.push(c.lightN+' simple ('+f0(c.lightFee)+' ea)');
-    if(c.structN) parts.push(c.structN+' structured ('+f0(c.structFee)+' ea)');
-    if(t.key==='desk'){
-      d+='<div class="strip green"><div class="st">Logistics contract negotiation — included on the desk</div>'+
-         'Negotiating your '+parts.join(' + ')+' is part of the desk mandate. As one-offs these would be <span class="bign">'+f0(c.total)+'</span> in project fees — included free when you commit to the desk.</div>';
-    } else {
-      d+='<div class="strip gold"><div class="st">Logistics contract negotiation — one-off project fees</div>'+
-         parts.join(' + ')+' = <span class="bign">'+f0(c.total)+'</span>, billed per contract on top of the fee above. '+
-         '<b style="font-family:Figtree;color:var(--ink)">Included free on the outsourced desk.</b></div>';
-    }
+var VOLS=[
+  {key:'lt25k',   label:'Less than 25,000 MT'},
+  {key:'25-100k', label:'25,000 – 100,000 MT'},
+  {key:'100-500k',label:'100,000 – 500,000 MT'},
+  {key:'500k-1m', label:'500,000 – 1 million MT'},
+  {key:'1-5m',    label:'1 – 5 million MT'},
+  {key:'5m+',     label:'5 million+ MT'}
+];
+var ENG_LABELS={single:'Single Shipment',recurring:'Recurring Program',desk:'Outsourced Freight Desk',advisory:'Strategic Advisory'};
+var GEO_LABELS={domestic:'Domestic','north-america':'North America',international:'International',worldwide:'Worldwide'};
+
+var config={engagement:'desk',cargo:[],modes:[],volume:'100-500k',services:[],geo:'international'};
+var estTimer=null;
+
+/* ---- selection wiring ---- */
+function bindSingle(groupId,key){
+  $$('#'+groupId+' .opt').forEach(function(el){
+    el.addEventListener('click',function(){
+      $$('#'+groupId+' .opt').forEach(function(o){o.classList.remove('sel')});
+      el.classList.add('sel');
+      config[key]=el.getAttribute('data-val');
+      onChange();
+    });
+    if(el.getAttribute('data-val')===config[key])el.classList.add('sel');
+  });
+}
+function bindMulti(groupId,key){
+  $$('#'+groupId+' .pill').forEach(function(el){
+    el.addEventListener('click',function(){
+      var v=el.getAttribute('data-val');
+      var i=config[key].indexOf(v);
+      if(i>=0){config[key].splice(i,1);el.classList.remove('sel');}
+      else{config[key].push(v);el.classList.add('sel');}
+      onChange();
+    });
+  });
+}
+bindSingle('engagement','engagement');
+bindSingle('geo','geo');
+bindMulti('cargo','cargo');
+bindMulti('modes','modes');
+bindMulti('services','services');
+
+/* ---- volume slider ---- */
+var vr=$('#volRange');
+function syncVol(){
+  var i=+vr.value; config.volume=VOLS[i].key;
+  $('#volNow').textContent=VOLS[i].label;
+  $$('#volTicks span').forEach(function(s,idx){s.classList.toggle('on',idx===i)});
+  onChange();
+}
+vr.addEventListener('input',syncVol);
+
+/* ---- summary rendering ---- */
+function labelList(groupSel,vals){
+  if(!vals.length)return '—';
+  var map={};
+  $$(groupSel).forEach(function(el){map[el.getAttribute('data-val')]=el.textContent.trim()});
+  return vals.map(function(v){return map[v]||v}).join(', ');
+}
+function renderSummary(){
+  $('#sEng').textContent=ENG_LABELS[config.engagement]||'—';
+  $('#sCargo').textContent=config.cargo.length?labelList('#cargo .pill',config.cargo):'—';
+  $('#sModes').textContent=config.modes.length?(config.modes.length+' selected'):'—';
+  $('#sVol').textContent=(VOLS.find(function(v){return v.key===config.volume})||{}).label||'—';
+  $('#sSvc').textContent=config.services.length?(config.services.length+' selected'):'—';
+  $('#sGeo').textContent=GEO_LABELS[config.geo]||'—';
+}
+
+/* ---- indicative estimate (server) ---- */
+function onChange(){renderSummary();clearTimeout(estTimer);estTimer=setTimeout(fetchEstimate,180);}
+function pendingState(){
+  var labels={single:'Estimated Project Fee',recurring:'Estimated Commercial Management Fee',desk:'Estimated Monthly Commercial Retainer',advisory:'Estimated Advisory Engagement'};
+  $('#estLabel').textContent=labels[config.engagement]||'Estimated Commercial Engagement';
+  $('#estMain').innerHTML='<span class="pending">Prepared on your commercial review</span>';
+  $('#estPer').textContent='We\'ll confirm an indicative figure against your cargo and lanes.';
+}
+async function fetchEstimate(){
+  try{
+    var r=await fetch('/api/estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(config)});
+    if(!r.ok)throw new Error('no api');
+    var q=await r.json();
+    $('#estLabel').textContent=q.label;
+    $('#estMain').innerHTML='<span class="from">From</span><span class="big">'+q.display+'</span>';
+    $('#estPer').textContent=q.per;
+  }catch(e){ pendingState(); }
+}
+
+/* ---- book modal ---- */
+function openBook(){$('#modal').classList.add('on');$('#mstatus').innerHTML='';}
+function closeBook(){$('#modal').classList.remove('on');}
+$('#modal').addEventListener('click',function(e){if(e.target===this)closeBook();});
+
+function mailtoFallback(){
+  var lines=['Engagement: '+(ENG_LABELS[config.engagement]||config.engagement),
+    'Cargo: '+(config.cargo.join(', ')||'—'),
+    'Modes: '+(config.modes.join(', ')||'—'),
+    'Annual volume: '+((VOLS.find(function(v){return v.key===config.volume})||{}).label||'—'),
+    'Services: '+(config.services.join(', ')||'—'),
+    'Scope: '+(GEO_LABELS[config.geo]||config.geo)];
+  return 'mailto:contact@pelorusshipping.com?subject='+encodeURIComponent('Commercial Review request')+'&body='+encodeURIComponent(lines.join('\n')+'\n\n');
+}
+async function submitBook(){
+  if(!$('#m_name').value||!$('#m_email').value){$('#mstatus').innerHTML='<span class="merr">Please add your name and work email.</span>';return;}
+  $('#mstatus').textContent='Sending…';
+  var payload={name:$('#m_name').value,company:$('#m_co').value,email:$('#m_email').value,phone:$('#m_phone').value,message:$('#m_msg').value,selectedTier:config.engagement,config:config};
+  try{
+    var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok)throw new Error('failed');
+    await r.json();
+    $('#mstatus').innerHTML='<span class="mok">✓ Request received. We\'ll be in touch within one business day to book your commercial review.</span>';
+  }catch(e){
+    $('#mstatus').innerHTML='<span class="merr">Couldn\'t reach our server — <a style="color:var(--gold);font-weight:700" href="'+mailtoFallback()+'">email us your configuration instead</a>.</span>';
   }
-  var ih=Q.inhouse,max=Math.max(ih,t.annual,1);
-  d+='<div class="bars"><div class="barrow"><div class="bl"><span>Build an in-house desk</span><span>'+f0(ih)+' / yr</span></div><div class="bar"><div class="fill ih" style="width:'+(ih/max*100)+'%">'+f0(ih)+'</div></div></div><div class="barrow"><div class="bl"><span>'+t.name+'</span><span>'+f0(t.annual)+' / yr</span></div><div class="bar"><div class="fill pel" style="width:'+(t.annual/max*100)+'%">'+f0(t.annual)+'</div></div></div></div>';
-  d+='<div class="strip green" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div class="st" style="margin:0">Lower than building it yourself by</div><div class="bign">'+f0(ih-t.annual)+' / year</div></div>';
-  var ctaLabel = (sel==='spot') ? 'Request this engagement →' : 'Commit — request a firm proposal →';
-  var ctaMicro = (sel==='spot')
-    ? 'Indicative fee. You accept the request terms; we then confirm the fixed per-tonne rate against your cargo and lanes and send an engagement letter to sign. No payment now.'
-    : 'No obligation. We confirm a fixed per-tonne rate against your actual cargo and lanes.';
-  d+='<div class="cta"><button class="btn" onclick="openModal()">'+ctaLabel+'</button><div class="micro">'+ctaMicro+'</div></div>';
-  $('detail').innerHTML=d;
-  $('disc').textContent='Indicative only. The in-house comparison and freight-saving range are estimates, not guarantees. A firm fee is quoted per cargo, lane and volume. The per-tonne rate is fixed — never a percentage of your freight bill, never a position against your cargo.';
 }
-function row(l,v){return '<div class="row"><span class="l">'+l+'</span><span class="v">'+v+'</span></div>'}
-function rowTot(l,v){return '<div class="row tot"><span class="l">'+l+'</span><span class="v">'+v+'</span></div>'}
-function openModal(){
-  var t=Q.tiers.filter(function(x){return x.key===sel})[0];
-  var engage = (sel==='spot');
-  $('modal').classList.toggle('engage', engage);
-  $('mtitle').textContent = engage ? 'Request this engagement' : 'Request a firm proposal';
-  $('m_submit').textContent = engage ? 'Request engagement' : 'Send request';
-  $('mdesc').textContent=t.name+' — indicative '+f0(t.annual)+'/yr for '+Q.input.annualTonnes.toLocaleString()+' t over '+Q.input.shipments+' shipments.';
-  if($('m_agree')) $('m_agree').checked=false;
-  $('mstatus').innerHTML='';$('modal').classList.add('on');
-}
-function closeModal(){$('modal').classList.remove('on')}
-function submitModal(){ return sel==='spot' ? sendEngagement() : sendLead(); }
-async function sendLead(){
-  $('mstatus').textContent='Sending…';
-  try{
-    var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('m_name').value,company:$('m_co').value,email:$('m_email').value,selectedTier:sel,input:input()})});
-    var j=await r.json();
-    $('mstatus').innerHTML='<span class="mok">✓ Request received. We\'ll come back with a firm per-tonne proposal.</span>';
-  }catch(e){$('mstatus').innerHTML='<span style="color:#b04a36">Could not send — email contact@pelorusshipping.com.</span>'}
-}
-async function sendEngagement(){
-  if(!$('m_name').value||!$('m_email').value){$('mstatus').innerHTML='<span style="color:#b04a36">Please add your name and work email.</span>';return}
-  if(!$('m_agree').checked){$('mstatus').innerHTML='<span style="color:#b04a36">Please accept the request terms to continue.</span>';return}
-  $('mstatus').textContent='Sending…';
-  try{
-    var r=await fetch('/api/engagement',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      name:$('m_name').value,company:$('m_co').value,email:$('m_email').value,
-      phone:$('m_phone').value,lanes:$('m_lane').value,
-      selectedTier:'spot',termsAccepted:true,input:input()})});
-    var j=await r.json();
-    if(!r.ok||j.error){throw new Error(j.message||'failed')}
-    $('mstatus').innerHTML='<span class="mok">✓ Request received'+(j.ref?' — <span class="mref">'+j.ref+'</span>':'')+'. We\'ll confirm your fee and send an engagement letter to sign, usually within 1 business day.</span>';
-  }catch(e){$('mstatus').innerHTML='<span style="color:#b04a36">'+(e.message&&e.message!=='failed'?e.message:'Could not send — email contact@pelorusshipping.com.')+'</span>'}
-}
-function toggleMenu(btn){var m=$('mobileMenu');var open=m.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
-function closeMenu(){var m=$('mobileMenu');if(m)m.classList.remove('open');}
-fetchQuote();
-</script></body></html>
+
+/* ---- nav ---- */
+function toggleMenu(btn){var m=$('#mobileMenu');var open=m.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
+
+/* expose config for future integrations (CRM, portal, proposal generation) */
+window.pelorusEngagement=config;
+
+syncVol();
+</script>
+</body></html>

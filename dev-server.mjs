@@ -4,6 +4,7 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import quote from './api/quote.js';
+import estimate from './api/estimate.js';
 import lead from './api/lead.js';
 import engagement from './api/engagement.js';
 
@@ -23,6 +24,7 @@ http.createServer(async (req,res)=>{
   if (url.pathname.startsWith('/api/')){
     req.body = await readBody(req);
     if (url.pathname === '/api/quote') return quote(req,res);
+    if (url.pathname === '/api/estimate') return estimate(req,res);
     if (url.pathname === '/api/lead')  return lead(req,res);
     if (url.pathname === '/api/engagement') return engagement(req,res);
     return res.status(404).json({error:'no such api'});
