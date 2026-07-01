@@ -100,13 +100,24 @@ a{color:inherit;text-decoration:none}
 .sumtop .from{font-family:Figtree;font-weight:700;font-size:11px;color:#a9bcd2;text-transform:uppercase;letter-spacing:.1em}
 .sumtop .per{font-size:12.5px;color:#c4d2e2;margin-top:6px}
 .sumtop .pending{font-family:Figtree;font-weight:800;font-size:19px;line-height:1.25}
-.sumtop .based{font-size:12px;color:#a9bcd2;margin-top:3px}
-.sumtop .feetype{font-family:Figtree;font-weight:800;font-size:23px;color:#fff;letter-spacing:-.01em;line-height:1.2;margin-top:12px}
-.sumtop .rec{display:flex;align-items:center;gap:9px;margin-top:14px;background:rgba(198,164,114,.16);border:1px solid rgba(198,164,114,.42);border-radius:8px;padding:9px 12px}
-.sumtop .rec[hidden]{display:none}
-.sumtop .reclab{font-family:Figtree;font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);flex:0 0 auto}
-.sumtop .recval{font-family:Figtree;font-weight:700;font-size:13.5px;color:#fff}
-.nextstep{font-size:12.5px;color:var(--body);background:var(--sea-1);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:14px;line-height:1.5}.nextstep b{font-family:Figtree;color:var(--navy)}
+.sumtop .based{font-size:11.5px;color:#a9bcd2;margin-top:3px;line-height:1.45}
+.sumtop .recmodel-label{font-family:Figtree;font-weight:700;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-top:16px}
+.sumtop .recmodel{font-family:Figtree;font-weight:800;font-size:23px;color:#fff;letter-spacing:-.01em;line-height:1.18;margin-top:5px}
+.sumtop .complex{margin-top:16px}
+.sumtop .complex[hidden]{display:none}
+.sumtop .cxhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}
+.sumtop .cxlab{font-family:Figtree;font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#a9bcd2}
+.sumtop .cxval{font-family:Figtree;font-weight:800;font-size:13px;color:var(--gold-soft)}
+.sumtop .cxbar{display:flex;gap:5px}
+.sumtop .cxbar span{flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.14);transition:.2s}
+.sumtop .cxbar span.on{background:var(--gold-soft)}
+.structure{margin-top:14px}
+.structure[hidden]{display:none}
+.structlab{font-family:Figtree;font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.structure ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.structure li{position:relative;padding-left:22px;font-family:Figtree;font-weight:600;font-size:13px;color:var(--navy);line-height:1.3}
+.structure li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:800;font-size:13px}
+.philosophy{font-size:12px;color:var(--ink);font-style:italic;line-height:1.5;margin-top:14px;padding-left:12px;border-left:2px solid var(--gold)}
 .sumbody{padding:18px 24px 22px}
 .sumrow{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:12.5px}
 .sumrow:first-child{border-top:none}
@@ -148,6 +159,11 @@ a{color:inherit;text-decoration:none}
 .rstep{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:18px 18px}
 .rstep .rn{font-family:Figtree;font-weight:800;font-size:12px;color:var(--gold);letter-spacing:.1em}
 .rstep h4{font-family:Figtree;font-weight:700;font-size:15px;color:var(--navy);margin-top:6px;line-height:1.25}
+.rstep p{font-size:12.5px;color:var(--body);line-height:1.45;margin-top:6px}
+/* every engagement begins with an assessment */
+.assess{max-width:660px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:13px}
+.assess p{font-size:15px;line-height:1.6;color:var(--body)}
+.assess p:first-child{font-family:Figtree;font-weight:700;font-size:18px;color:var(--navy)}
 
 /* built for long-term partnerships (navy) */
 .ltp{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
@@ -229,12 +245,12 @@ footer a{color:var(--gold-soft)}
     <a href="index.html#services">What We Do</a>
     <a href="pricing.html" class="on">Engagement Models</a>
     <a href="index.html#careers">Careers</a>
-    <a href="#book" class="btn">Book a Commercial Review</a>
+    <a href="#book" class="btn">Schedule a Commercial Assessment</a>
   </div>
   <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMenu(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
  </div>
  <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#services">What We Do</a><a href="pricing.html">Engagement Models</a><a href="index.html#careers">Careers</a><a href="#book">Book a Commercial Review</a>
+  <a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#services">What We Do</a><a href="pricing.html">Engagement Models</a><a href="index.html#careers">Careers</a><a href="#book">Schedule a Commercial Assessment</a>
  </div>
 </div>
 
@@ -336,10 +352,14 @@ footer a{color:var(--gold-soft)}
  <aside class="summary">
   <div class="sumcard" id="book">
    <div class="sumtop">
-     <div class="lab">Estimated Commercial Engagement</div>
-     <div class="based">Based on your selections</div>
-     <div class="feetype" id="feeType">Configure to see your engagement</div>
-     <div class="rec" id="recBox" hidden><span class="reclab">Recommended</span><span class="recval" id="recVal">—</span></div>
+     <div class="lab">Commercial Assessment Summary</div>
+     <div class="based">Based on your selections — prepared for your Commercial Assessment</div>
+     <div class="recmodel-label">Recommended Commercial Engagement</div>
+     <div class="recmodel" id="recVal">Configure to see your recommendation</div>
+     <div class="complex" id="complexBox" hidden>
+       <div class="cxhead"><span class="cxlab">Commercial Complexity</span><span class="cxval" id="cxVal">—</span></div>
+       <div class="cxbar"><span data-lvl="1"></span><span data-lvl="2"></span><span data-lvl="3"></span><span data-lvl="4"></span></div>
+     </div>
    </div>
    <div class="sumbody">
      <div class="sumrow"><span class="k">Engagement</span><span class="sumval" id="sEng">—</span></div>
@@ -348,13 +368,18 @@ footer a{color:var(--gold-soft)}
      <div class="sumrow"><span class="k">Annual volume</span><span class="sumval" id="sVol">100,000 – 500,000 MT</span></div>
      <div class="sumrow"><span class="k">Scope</span><span class="sumval" id="sGeo">—</span></div>
      <div class="sumrow"><span class="k">Services</span><span class="sumval" id="sSvc">—</span></div>
-     <p class="note">Final commercial terms depend on cargo complexity, shipment frequency, annual volume, geography and scope of responsibility.</p>
-     <div class="nextstep"><b>Next step:</b> Book a 30-minute Commercial Review.</div>
+     <div class="sumrow"><span class="k">Implementation</span><span class="sumval" id="sTime">—</span></div>
+     <div class="structure" id="structBox" hidden>
+       <div class="structlab">Typical Commercial Structure</div>
+       <ul id="structList"></ul>
+     </div>
+     <p class="note">Commercial terms are tailored during the Commercial Assessment based on your freight profile, organisational structure and commercial objectives — this page is not a quotation.</p>
+     <p class="philosophy">Our objective isn't to quote freight. It's to determine the commercial structure that will create the greatest long-term value for your supply chain.</p>
      <div class="sumcta">
-       <button class="btn gold" onclick="openBook()">Book Your Commercial Review →</button>
+       <button class="btn gold" onclick="openBook()">Schedule Your Commercial Assessment →</button>
        <a class="btn ghost" href="mailto:contact@pelorusshipping.com?subject=Discuss%20our%20supply%20chain">Discuss Your Supply Chain</a>
      </div>
-     <p class="trust">Independent · No freight spreads · No carrier commissions</p>
+     <p class="trust">Independent · Long-term commercial partnership · Cargo-owner representation</p>
    </div>
   </div>
  </aside>
@@ -448,24 +473,39 @@ footer a{color:var(--gold-soft)}
  </div>
 </section>
 
-<!-- HOW THE COMMERCIAL REVIEW WORKS -->
+<!-- EVERY ENGAGEMENT BEGINS WITH A COMMERCIAL ASSESSMENT -->
+<section class="sec" style="background:linear-gradient(180deg,#fff,var(--sea-1))">
+ <div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Before any recommendation</span>
+    <h2>Every engagement begins with a Commercial Assessment.</h2>
+  </div>
+  <div class="assess">
+    <p>Every supply chain is different.</p>
+    <p>Before recommending an engagement model or commercial structure, we take the time to understand your freight profile, procurement strategy, commercial objectives and organisational needs.</p>
+    <p>This ensures every recommendation is aligned with your business — rather than based on a standard pricing schedule.</p>
+  </div>
+ </div>
+</section>
+
+<!-- WHAT HAPPENS DURING THE COMMERCIAL ASSESSMENT -->
 <section class="sec">
  <div class="wrap">
   <div class="sec-head">
-    <span class="eyebrow">The Commercial Review</span>
-    <h2>What happens during the Commercial Review.</h2>
-    <p>A focused, 30-minute conversation — no obligation, no sales pressure. In that half hour, we review:</p>
+    <span class="eyebrow">The Commercial Assessment</span>
+    <h2>What happens during the Commercial Assessment.</h2>
+    <p>A focused, executive-level conversation with no obligation. Together we evaluate:</p>
   </div>
   <div class="review">
-    <div class="rstep"><span class="rn">01</span><h4>Your current freight structure</h4></div>
-    <div class="rstep"><span class="rn">02</span><h4>Cargo flows and annual volume</h4></div>
-    <div class="rstep"><span class="rn">03</span><h4>Your current procurement process</h4></div>
-    <div class="rstep"><span class="rn">04</span><h4>Commercial pain points</h4></div>
-    <div class="rstep"><span class="rn">05</span><h4>Potential savings or risk areas</h4></div>
-    <div class="rstep"><span class="rn">06</span><h4>Whether Pelorus is the right fit</h4></div>
+    <div class="rstep"><span class="rn">01</span><h4>Your Current Freight Structure</h4><p>Understand how transportation is currently procured, managed and executed.</p></div>
+    <div class="rstep"><span class="rn">02</span><h4>Cargo Flows &amp; Annual Volume</h4><p>Identify recurring opportunities and determine the most appropriate engagement model.</p></div>
+    <div class="rstep"><span class="rn">03</span><h4>Commercial Procurement Process</h4><p>Review current procurement practices and areas for potential optimisation.</p></div>
+    <div class="rstep"><span class="rn">04</span><h4>Commercial Objectives &amp; Pain Points</h4><p>Surface where margin, execution or risk is being lost — and what you need to protect.</p></div>
+    <div class="rstep"><span class="rn">05</span><h4>Savings &amp; Risk Areas</h4><p>Quantify where independent representation can reduce cost and commercial exposure.</p></div>
+    <div class="rstep"><span class="rn">06</span><h4>Long-Term Commercial Fit</h4><p>Determine whether Pelorus is the right long-term commercial partner for your organisation.</p></div>
   </div>
   <div style="text-align:center;margin-top:34px">
-    <button class="btn gold" style="padding:15px 30px" onclick="openBook()">Book Your Commercial Review →</button>
+    <button class="btn gold" style="padding:15px 30px" onclick="openBook()">Schedule Your Commercial Assessment →</button>
   </div>
  </div>
 </section>
@@ -497,8 +537,8 @@ footer a{color:var(--gold-soft)}
 <!-- BOOK MODAL -->
 <div class="modal" id="modal"><div class="mbox">
   <button class="mclose" onclick="closeBook()" aria-label="Close">&times;</button>
-  <h3>Book a Commercial Review</h3>
-  <p class="msub">A focused, 30-minute review — we'll pressure-test your configuration and come back with a straight view on fit and opportunity. No obligation.</p>
+  <h3>Schedule a Commercial Assessment</h3>
+  <p class="msub">Together we'll evaluate your transportation profile and commercial objectives, and determine whether Pelorus is the right long-term partner for your organisation. No obligation.</p>
   <div class="field"><input type="text" id="m_name" placeholder="Your name"></div>
   <div class="field"><input type="text" id="m_co" placeholder="Company"></div>
   <div class="field"><input type="email" id="m_email" placeholder="Work email"></div>
@@ -513,12 +553,15 @@ footer a{color:var(--gold-soft)}
 
 <script>
 /* =====================================================================
-   Engagement configurator — holds NO pricing. The indicative figure is
-   requested from /api/estimate (rate card stays server-side). When no API
-   is available (e.g. static hosting) the page degrades to a graceful
-   "prepared on your review" state and the CTA still works via /api/lead
-   or a mailto fallback. Integration points for CRM / HubSpot / Stripe /
-   client portal / proposal generation all hang off the `config` object.
+   Commercial Assessment configurator — a QUALIFICATION tool, not a quote.
+   It holds NO pricing and shows none: from the visitor's selections it
+   surfaces a recommended engagement model, a commercial-complexity signal,
+   an implementation window and the likely commercial structure — enough to
+   prepare both sides for the Commercial Assessment conversation.
+   Every selection is captured in `config` and exposed, together with the
+   derived assessment, via window.pelorusEngagement / window.pelorusAssessment()
+   so it can later feed a CRM, internal pricing calculator, proposal generator
+   or client intake form. The CTA posts to /api/lead (mailto fallback offline).
    ===================================================================== */
 var $=function(s){return document.querySelector(s)};
 var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
@@ -533,10 +576,16 @@ var VOLS=[
 ];
 var ENG_LABELS={desk:'Commercial Freight Desk',program:'Freight Program Management',advisory:'Strategic Supply Chain Advisory'};
 var GEO_LABELS={domestic:'Domestic','north-america':'North America',international:'International',worldwide:'Worldwide'};
-/* Fee structure per engagement (no figure shown — configuration & partnership first) */
-var FEE_LABELS={desk:'Monthly Retainer or Hybrid Agreement',program:'Per-Tonne Management Fee',advisory:'Fixed-Fee Advisory Project'};
 /* Recommendation resolves to one of the three commercial partnership models */
 var REC_LABELS={desk:'Commercial Freight Desk',program:'Freight Program Management',advisory:'Strategic Supply Chain Advisory'};
+/* Likely commercial STRUCTURE & implementation window per model — indicative and
+   confirmed during the Commercial Assessment. No price is shown or implied. */
+var STRUCTURE={
+  desk:['Monthly Commercial Retainer','Variable Management Fee','Annual Strategic Review'],
+  program:['Per-Tonne Management Fee','Defined Program Scope','Quarterly Performance Review'],
+  advisory:['Fixed Advisory Engagement','Defined Project Scope','Milestone-Based Deliverables']
+};
+var TIMELINE={desk:'6–8 weeks to embed',program:'3–5 weeks to launch',advisory:'2–4 weeks to scope'};
 
 /* nothing pre-selected — the panel stays empty until the visitor configures */
 var config={engagement:null,cargo:[],modes:[],volume:'100-500k',services:[],geo:null};
@@ -622,16 +671,67 @@ function recommend(){
   ['desk','program','advisory'].forEach(function(k){if(score[k]>bv){bv=score[k];best=k;}});
   return best;
 }
+/* Commercial complexity (Low/Medium/High/Very High) — driven by annual volume,
+   transportation modes, geographic scope, commercial services and cargo mix.
+   This is a qualitative preparation signal, NOT a price. */
+function complexity(){
+  var volIdx=VOLS.findIndex(function(v){return v.key===config.volume});
+  var geoW={domestic:0,'north-america':1,international:2,worldwide:3}[config.geo]||0;
+  var score=volIdx
+    + Math.min(config.modes.length,6)*0.6
+    + Math.min(config.services.length,14)*0.35
+    + geoW
+    + (config.cargo.indexOf('project')>=0?1.5:0);
+  if(score<4)   return {level:1,label:'Low'};
+  if(score<7.5) return {level:2,label:'Medium'};
+  if(score<11)  return {level:3,label:'High'};
+  return {level:4,label:'Very High'};
+}
+
+/* Structured assessment payload — the single object future integrations read
+   (CRM · internal pricing calculator · proposal generator · client intake form).
+   Nothing here is a quote; it is qualification + preparation data. */
+var lastAssessment=null;
+function buildAssessment(){
+  var ready=!!(config.engagement&&config.cargo.length>=1&&config.services.length>=1);
+  var rec=recommend();
+  var cx=complexity();
+  return {
+    ready:ready,
+    selections:{engagement:config.engagement,cargo:config.cargo.slice(),modes:config.modes.slice(),
+      volume:config.volume,services:config.services.slice(),geo:config.geo},
+    recommendation:rec,
+    recommendationLabel:REC_LABELS[rec],
+    complexity:cx.label, complexityLevel:cx.level,
+    implementation:TIMELINE[rec],
+    commercialStructure:STRUCTURE[rec]
+  };
+}
+
 function renderEstimate(){
   var ready=config.engagement&&config.cargo.length>=1&&config.services.length>=1;
   if(!ready){
-    $('#feeType').textContent='Configure to see your engagement';
-    $('#recBox').hidden=true;
+    $('#recVal').textContent='Configure to see your recommendation';
+    $('#complexBox').hidden=true;
+    $('#structBox').hidden=true;
+    $('#sTime').textContent='—';
+    lastAssessment=buildAssessment();
     return;
   }
-  $('#feeType').textContent=FEE_LABELS[config.engagement]||'Tailored Commercial Engagement';
-  $('#recVal').textContent=REC_LABELS[recommend()];
-  $('#recBox').hidden=false;
+  var rec=recommend();
+  $('#recVal').textContent=REC_LABELS[rec];
+  /* commercial complexity meter */
+  var cx=complexity();
+  $('#cxVal').textContent=cx.label;
+  $$('#complexBox .cxbar span').forEach(function(sp){sp.classList.toggle('on',(+sp.getAttribute('data-lvl'))<=cx.level);});
+  $('#complexBox').hidden=false;
+  /* implementation timeline */
+  $('#sTime').textContent=TIMELINE[rec]||'—';
+  /* typical commercial structure */
+  var ul=$('#structList'); ul.innerHTML='';
+  STRUCTURE[rec].forEach(function(item){var li=document.createElement('li');li.textContent=item;ul.appendChild(li);});
+  $('#structBox').hidden=false;
+  lastAssessment=buildAssessment();
 }
 
 /* ---- book modal ---- */
@@ -640,33 +740,42 @@ function closeBook(){$('#modal').classList.remove('on');}
 $('#modal').addEventListener('click',function(e){if(e.target===this)closeBook();});
 
 function mailtoFallback(){
-  var lines=['Engagement: '+(ENG_LABELS[config.engagement]||config.engagement),
+  var a=buildAssessment();
+  var lines=['Recommended engagement: '+a.recommendationLabel,
+    'Commercial complexity: '+a.complexity,
+    'Chosen engagement: '+(ENG_LABELS[config.engagement]||'—'),
     'Cargo: '+(config.cargo.join(', ')||'—'),
     'Modes: '+(config.modes.join(', ')||'—'),
     'Annual volume: '+((VOLS.find(function(v){return v.key===config.volume})||{}).label||'—'),
     'Services: '+(config.services.join(', ')||'—'),
-    'Scope: '+(GEO_LABELS[config.geo]||config.geo)];
-  return 'mailto:contact@pelorusshipping.com?subject='+encodeURIComponent('Commercial Review request')+'&body='+encodeURIComponent(lines.join('\n')+'\n\n');
+    'Scope: '+(GEO_LABELS[config.geo]||config.geo||'—')];
+  return 'mailto:contact@pelorusshipping.com?subject='+encodeURIComponent('Commercial Assessment request')+'&body='+encodeURIComponent(lines.join('\n')+'\n\n');
 }
 async function submitBook(){
   if(!$('#m_name').value||!$('#m_email').value){$('#mstatus').innerHTML='<span class="merr">Please add your name and work email.</span>';return;}
   $('#mstatus').textContent='Sending…';
-  var payload={name:$('#m_name').value,company:$('#m_co').value,email:$('#m_email').value,phone:$('#m_phone').value,message:$('#m_msg').value,selectedTier:config.engagement,config:config};
+  /* payload is intake-form / CRM ready: raw selections + derived assessment */
+  var payload={name:$('#m_name').value,company:$('#m_co').value,email:$('#m_email').value,phone:$('#m_phone').value,
+    message:$('#m_msg').value,selectedTier:config.engagement,config:config,assessment:buildAssessment()};
   try{
     var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     if(!r.ok)throw new Error('failed');
     await r.json();
-    $('#mstatus').innerHTML='<span class="mok">✓ Request received. We\'ll be in touch within one business day to book your commercial review.</span>';
+    $('#mstatus').innerHTML='<span class="mok">✓ Request received. We\'ll be in touch within one business day to schedule your Commercial Assessment.</span>';
   }catch(e){
-    $('#mstatus').innerHTML='<span class="merr">Couldn\'t reach our server — <a style="color:var(--gold);font-weight:700" href="'+mailtoFallback()+'">email us your configuration instead</a>.</span>';
+    $('#mstatus').innerHTML='<span class="merr">Couldn\'t reach our server — <a style="color:var(--gold);font-weight:700" href="'+mailtoFallback()+'">email us your selections instead</a>.</span>';
   }
 }
 
 /* ---- nav ---- */
 function toggleMenu(btn){var m=$('#mobileMenu');var open=m.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');}
 
-/* expose config for future integrations (CRM, portal, proposal generation) */
+/* Future-integration surface (no integrations built yet):
+   window.pelorusEngagement        — live raw selections object
+   window.pelorusAssessment()      — structured payload for CRM / internal pricing
+                                     calculator / proposal generator / client intake form */
 window.pelorusEngagement=config;
+window.pelorusAssessment=function(){return lastAssessment||buildAssessment();};
 
 syncVol();
 </script>

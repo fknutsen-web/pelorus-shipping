@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#0a2444;--gold:#b1864e;--gold-soft:#c6a472}
+  html,body{width:1128px;height:191px}
+  .banner{width:1128px;height:191px;position:relative;overflow:hidden;
+    background:radial-gradient(680px 300px at 82% -30%,rgba(177,134,78,.28),transparent 60%),linear-gradient(180deg,#0a2444,#0e2a4e);
+    font-family:'Figtree',sans-serif}
+  /* faint compass watermark far right */
+  .wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:250px;height:250px;opacity:.06;color:#fff}
+  /* LinkedIn drops the square logo bottom-left (~0–270px). Keep it clear. */
+  .safe{position:absolute;left:0;top:0;bottom:0;width:296px}
+  .rule{position:absolute;left:300px;top:34px;bottom:34px;width:1px;
+    background:linear-gradient(180deg,transparent,rgba(198,164,114,.55),transparent)}
+  .msg{position:absolute;left:344px;right:64px;top:50%;transform:translateY(-50%)}
+  .eyebrow{font-weight:700;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px}
+  .tag{font-weight:800;font-size:33px;line-height:1.12;letter-spacing:-.01em;color:#fff}
+  .tag em{font-style:normal;color:var(--gold-soft)}
+  .strip{margin-top:14px;font-weight:600;font-size:11px;letter-spacing:.22em;color:#9fb2c6}
+</style></head><body>
+<div class="banner">
+  <svg class="wm" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.8"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/></svg>
+  <div class="safe"></div>
+  <div class="rule"></div>
+  <div class="msg">
+    <div class="eyebrow">Independent · Cargo Owner Representation</div>
+    <div class="tag">The <em>Commercial Freight Desk</em> Behind<br>Industrial Supply Chains</div>
+    <div class="strip">OCEAN · BARGE · RAIL · ROAD · TERMINAL &amp; STORAGE</div>
+  </div>
+</div>
+</body></html>

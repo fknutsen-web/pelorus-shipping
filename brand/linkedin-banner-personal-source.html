@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#0a2444;--gold:#b1864e;--gold-soft:#c6a472}
+  html,body{width:1584px;height:396px}
+  .banner{width:1584px;height:396px;position:relative;overflow:hidden;
+    background:radial-gradient(760px 460px at 84% -20%,rgba(177,134,78,.26),transparent 62%),linear-gradient(180deg,#0a2444,#0e2a4e);
+    font-family:'Figtree',sans-serif}
+  .wm{position:absolute;top:50%;transform:translateY(-50%);opacity:.06;color:#fff}
+  .wm.r{right:-70px;width:420px;height:420px}
+  .wm.l{left:-150px;width:420px;height:420px;opacity:.045}
+  /* profile photo lands bottom-left (~0–360px); keep the strong content centred */
+  .msg{position:absolute;left:360px;right:80px;top:50%;transform:translateY(-50%);text-align:center}
+  .eyebrow{font-weight:700;font-size:15px;letter-spacing:.30em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px}
+  .tag{font-weight:800;font-size:48px;line-height:1.12;letter-spacing:-.015em;color:#fff}
+  .tag em{font-style:normal;color:var(--gold-soft)}
+  .rule{width:74px;height:3px;background:var(--gold);margin:22px auto}
+  .lock{display:flex;align-items:center;justify-content:center;gap:14px}
+  .lock .mark{width:40px;height:40px}
+  .lock .p{font-weight:800;font-size:20px;letter-spacing:.20em;color:#fff}
+  .lock .s{font-weight:600;font-size:20px;letter-spacing:.20em;color:var(--gold-soft)}
+  .strip{margin-top:14px;font-weight:600;font-size:13px;letter-spacing:.24em;color:#9fb2c6}
+</style></head><body>
+<div class="banner">
+  <svg class="wm r" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.8"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/></svg>
+  <svg class="wm l" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.4"/><polygon points="50,7 55,45 93,50 55,55 50,93 45,55 7,50 45,45" fill="currentColor"/></svg>
+  <div class="msg">
+    <div class="eyebrow">Independent · Cargo Owner Representation</div>
+    <div class="tag">The <em>Commercial Freight Desk</em><br>Behind Industrial Supply Chains</div>
+    <div class="rule"></div>
+    <div class="lock">
+      <svg class="mark" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#0c294c"/><line x1="31" y1="20" x2="31" y2="84" stroke="#c39a5d" stroke-width="3.4" stroke-linecap="round"/><circle cx="31" cy="18" r="4.2" fill="#c39a5d"/><path d="M31 25 L84 32.5 L68.5 42 L84 51.5 L31 59 Z" fill="#f4f1ea"/><text x="44.5" y="49" font-family="Georgia,serif" font-size="24" font-weight="600" fill="#0a2342" text-anchor="middle">P</text></svg>
+      <span class="p">PELORUS</span><span class="s">SHIPPING</span>
+    </div>
+    <div class="strip">OCEAN · BARGE · RAIL · ROAD · TERMINAL &amp; STORAGE</div>
+  </div>
+</div>
+</body></html>

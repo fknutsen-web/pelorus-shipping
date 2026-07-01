@@ -23,8 +23,15 @@ Shared brand kit and the company one-pager. Logos and banners are PNG at 2× for
 | `logo-horizontal-white.png` | Horizontal lockup for **dark** backgrounds |
 | `linkedin-banner-personal-1584x396.png` | LinkedIn personal profile background |
 | `linkedin-banner-company-1128x191.png` | LinkedIn company page cover |
+| `linkedin-banner-company-source.html` | Editable HTML source for the company banner |
+| `linkedin-banner-personal-source.html` | Editable HTML source for the personal banner |
 | `Pelorus-Shipping-OnePager.pdf` | Capabilities one-pager (US Letter, print-ready) |
 | `onepager-source.html` | Editable HTML source for the one-pager |
 
 ## Regenerating the one-pager
 Open `onepager-source.html`, edit, then print to PDF (Letter, margins none, background graphics on) — or render headless with Chrome/Playwright.
+
+## Regenerating the LinkedIn banners
+Edit the banner `*-source.html`, then render headless at **2×** and clip to the CSS size:
+- Company cover → 1128×191 (output 2256×382). Keep content clear of the bottom-left logo zone (~0–296px).
+- Personal background → 1584×396 (output 3168×792). Keep content centred, clear of the bottom-left profile photo.
