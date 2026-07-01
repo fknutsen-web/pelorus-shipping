@@ -27,13 +27,18 @@ dev-server.mjs    Run locally without Vercel
 
 ### Engagement Models page (pricing.html)
 An interactive configurator (Step 1–6: engagement type, cargo, modes, annual
-volume, commercial services, geographic scope) that shows an **indicative**
-engagement figure and a consultative "Book a Commercial Review" CTA instead of
-published prices. No pricing is hard-coded in the browser — the figure comes from
-`/api/estimate`, and the whole `config` object is exposed as `window.pelorusEngagement`
-so it can later be wired to CRM / HubSpot / Stripe / a client portal / automated
-proposal generation. On static hosting (no functions) it degrades to a graceful
-"prepared on your commercial review" state and the CTA falls back to email.
+volume, commercial services, geographic scope). It is **configuration-first**: it
+shows the *fee structure* for the chosen engagement (Project Fee / Per-Tonne
+Management Fee / Monthly Retainer / Tailored Commercial Engagement) and a
+**recommended engagement** derived from the selections — **no public price is
+displayed**. The primary action is booking a 30-minute Commercial Review.
+
+The whole `config` object is exposed as `window.pelorusEngagement` so it can later
+be wired to CRM / HubSpot / Stripe / a client portal / automated proposal
+generation. `lib/estimate.js` + `/api/estimate` remain as server-side infrastructure
+for optional "starting from" ranges later (rate card stays server-only); `/api/lead`
+still records a server-computed indicative figure with each booking. The CTA falls
+back to email when the API isn't reachable (e.g. static hosting).
 
 ## Run locally
 ```

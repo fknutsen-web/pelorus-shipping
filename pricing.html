@@ -97,6 +97,13 @@ a{color:inherit;text-decoration:none}
 .sumtop .from{font-family:Figtree;font-weight:700;font-size:11px;color:#a9bcd2;text-transform:uppercase;letter-spacing:.1em}
 .sumtop .per{font-size:12.5px;color:#c4d2e2;margin-top:6px}
 .sumtop .pending{font-family:Figtree;font-weight:800;font-size:19px;line-height:1.25}
+.sumtop .based{font-size:12px;color:#a9bcd2;margin-top:3px}
+.sumtop .feetype{font-family:Figtree;font-weight:800;font-size:23px;color:#fff;letter-spacing:-.01em;line-height:1.2;margin-top:12px}
+.sumtop .rec{display:flex;align-items:center;gap:9px;margin-top:14px;background:rgba(198,164,114,.16);border:1px solid rgba(198,164,114,.42);border-radius:8px;padding:9px 12px}
+.sumtop .rec[hidden]{display:none}
+.sumtop .reclab{font-family:Figtree;font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);flex:0 0 auto}
+.sumtop .recval{font-family:Figtree;font-weight:700;font-size:13.5px;color:#fff}
+.nextstep{font-size:12.5px;color:var(--body);background:var(--sea-1);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:14px;line-height:1.5}.nextstep b{font-family:Figtree;color:var(--navy)}
 .sumbody{padding:18px 24px 22px}
 .sumrow{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:12.5px}
 .sumrow:first-child{border-top:none}
@@ -124,6 +131,17 @@ a{color:inherit;text-decoration:none}
 .model ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:7px}
 .model li{font-size:12.5px;color:var(--body);padding-left:16px;position:relative;line-height:1.4}
 .model li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg)}
+
+/* outcomes */
+.outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:840px;margin:0 auto}
+.outcome{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 18px;font-family:Figtree;font-weight:600;font-size:14.5px;color:var(--ink)}
+.outcome .oc{width:20px;height:20px;color:#fff;background:var(--gold);border-radius:50%;padding:4px;flex:0 0 auto}
+
+/* commercial review steps */
+.review{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
+.rstep{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:18px 18px}
+.rstep .rn{font-family:Figtree;font-weight:800;font-size:12px;color:var(--gold);letter-spacing:.1em}
+.rstep h4{font-family:Figtree;font-weight:700;font-size:15px;color:var(--navy);margin-top:6px;line-height:1.25}
 
 .how{background:linear-gradient(180deg,#0a2444,#0e2a4e);color:#dfe8f2}
 .how .sec-head h2{color:#fff}.how .sec-head .eyebrow{color:var(--gold-soft)}.how .sec-head p{color:#c4d2e2}
@@ -155,11 +173,13 @@ footer a{color:var(--gold-soft)}
   .cfgwrap{grid-template-columns:1fr}
   .summary{position:static;margin-top:4px}
   .models{grid-template-columns:1fr 1fr}
+  .review{grid-template-columns:1fr 1fr}
   .principles{grid-template-columns:1fr}
   .navlinks{display:none}.menu-btn{display:block}.mobile-menu.open{display:block;padding-bottom:10px}
 }
 @media(max-width:560px){
   .opts{grid-template-columns:1fr}.geo{grid-template-columns:1fr 1fr}.models{grid-template-columns:1fr}
+  .outcomes,.review{grid-template-columns:1fr}
   .vol .ticks span{font-size:9px}
 }
 </style></head><body>
@@ -195,12 +215,12 @@ footer a{color:var(--gold-soft)}
 
 <header class="hero"><div class="wrap">
   <div class="eyebrow">Engagement Models</div>
-  <h1>Build your <em>commercial freight desk.</em></h1>
-  <p class="sub">Configure the independent commercial support you need — no sales calls to get started. Pelorus procures, negotiates and manages your freight while coordinating the best execution partners available.</p>
+  <h1>Build your <em>independent commercial freight desk.</em></h1>
+  <p class="sub">Configure the commercial freight support your supply chain needs. Pelorus represents cargo owners only — procuring, negotiating and managing freight across ocean, barge, rail, road, terminals and storage.</p>
   <div class="pos">
-    <span>We <b>don't sell</b> transportation</span>
-    <span>We own <b>no vessels, terminals or warehouses</b></span>
-    <span>We represent <b>cargo owners</b> only</span>
+    <span><b>Independent</b> by Design</span>
+    <span><b>Cargo Owner</b> Representation</span>
+    <span><b>Transparent</b> Commercial Alignment</span>
   </div>
 </div></header>
 
@@ -212,10 +232,10 @@ footer a{color:var(--gold-soft)}
    <div class="step-head"><span class="step-n">STEP 1</span><h2>How would you like to work with Pelorus?</h2></div>
    <p class="sh">Choose the engagement that fits how you move cargo today. You can evolve it over time.</p>
    <div class="opts" id="engagement" data-single="1">
-     <div class="opt" data-val="single"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-ship"/></svg><h4>Single Shipment</h4><p>One-off commercial management of a specific cargo, end to end.</p></div>
-     <div class="opt" data-val="recurring"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-repeat"/></svg><h4>Recurring Shipping Program</h4><p>Ongoing management of a repeating cargo flow on agreed lanes.</p></div>
-     <div class="opt" data-val="desk"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-desk"/></svg><h4>Outsourced Commercial Freight Desk</h4><p>Your standing commercial department — Pelorus as an extension of your team.</p></div>
-     <div class="opt" data-val="advisory"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-advisory"/></svg><h4>Strategic Advisory</h4><p>Trade-lane, terminal, due-diligence and supply-chain strategy work.</p></div>
+     <div class="opt" data-val="single"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-ship"/></svg><h4>Voyage Support</h4><p>One-off commercial management for a specific cargo movement, end to end.</p></div>
+     <div class="opt" data-val="recurring"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-repeat"/></svg><h4>Recurring Freight Programs</h4><p>Ongoing freight management for repeating import, export or domestic cargo flows.</p></div>
+     <div class="opt" data-val="desk"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-desk"/></svg><h4>Commercial Freight Desk</h4><p>Executive-level outsourced freight management across multiple modes, contracts and partners.</p></div>
+     <div class="opt" data-val="advisory"><span class="tick"><svg><use href="#i-check"/></svg></span><svg class="oi"><use href="#i-advisory"/></svg><h4>Strategic Supply Chain Advisory</h4><p>Commercial advisory for trade lanes, terminal strategy, sourcing, procurement and logistics structure.</p></div>
    </div>
   </div>
 
@@ -292,22 +312,22 @@ footer a{color:var(--gold-soft)}
  <aside class="summary">
   <div class="sumcard" id="book">
    <div class="sumtop">
-     <div class="lab" id="estLabel">Estimated Monthly Commercial Retainer</div>
-     <div class="est" id="estMain">
-       <span class="from">From</span><span class="big" id="estBig">—</span>
-     </div>
-     <div class="per" id="estPer">Configure your engagement to see an indicative figure.</div>
+     <div class="lab">Estimated Commercial Engagement</div>
+     <div class="based">Based on your selections</div>
+     <div class="feetype" id="feeType">Configure to see your engagement</div>
+     <div class="rec" id="recBox" hidden><span class="reclab">Recommended</span><span class="recval" id="recVal">—</span></div>
    </div>
    <div class="sumbody">
-     <div class="sumrow"><span class="k">Engagement</span><span class="sumval" id="sEng">Outsourced Freight Desk</span></div>
+     <div class="sumrow"><span class="k">Engagement</span><span class="sumval" id="sEng">—</span></div>
      <div class="sumrow"><span class="k">Cargo</span><span class="sumval" id="sCargo">—</span></div>
      <div class="sumrow"><span class="k">Modes</span><span class="sumval" id="sModes">—</span></div>
      <div class="sumrow"><span class="k">Annual volume</span><span class="sumval" id="sVol">100,000 – 500,000 MT</span></div>
+     <div class="sumrow"><span class="k">Scope</span><span class="sumval" id="sGeo">—</span></div>
      <div class="sumrow"><span class="k">Services</span><span class="sumval" id="sSvc">—</span></div>
-     <div class="sumrow"><span class="k">Scope</span><span class="sumval" id="sGeo">International</span></div>
-     <p class="note">Final pricing depends on cargo complexity, shipment frequency and commercial scope. Figures are indicative and confirmed during your commercial review — not a quote or an offer.</p>
+     <p class="note">Final commercial terms depend on cargo complexity, shipment frequency, annual volume, geography and scope of responsibility.</p>
+     <div class="nextstep"><b>Next step:</b> Book a 30-minute Commercial Review.</div>
      <div class="sumcta">
-       <button class="btn gold" onclick="openBook()">Book a Commercial Review →</button>
+       <button class="btn gold" onclick="openBook()">Book Your Commercial Review →</button>
        <a class="btn ghost" href="mailto:contact@pelorusshipping.com?subject=Discuss%20our%20supply%20chain">Discuss Your Supply Chain</a>
      </div>
      <p class="trust">Independent · No freight spreads · No carrier commissions</p>
@@ -321,14 +341,56 @@ footer a{color:var(--gold-soft)}
  <div class="wrap">
   <div class="sec-head">
     <span class="eyebrow">Ways to engage</span>
-    <h2>Four ways to access an independent freight desk.</h2>
+    <h2>Four ways to access an independent commercial freight desk.</h2>
     <p>The commercial discipline is the same at every level. What changes is how deeply Pelorus is embedded in your organisation.</p>
   </div>
   <div class="models">
-    <div class="model"><svg class="mi"><use href="#i-ship"/></svg><h3>Voyage Support</h3><p>Ideal for one-off shipments — end-to-end commercial management of a single cargo.</p></div>
-    <div class="model"><svg class="mi"><use href="#i-repeat"/></svg><h3>Recurring Programs</h3><p>For ongoing imports and exports across agreed lanes and repeating cargo flows.</p></div>
-    <div class="model"><svg class="mi"><use href="#i-desk"/></svg><h3>Outsourced Commercial Freight Desk</h3><p>Pelorus becomes an extension of your commercial organisation — your standing desk.</p></div>
-    <div class="model"><svg class="mi"><use href="#i-advisory"/></svg><h3>Strategic Advisory</h3><ul><li>Trade lane development</li><li>Terminal evaluations</li><li>Commercial due diligence</li><li>Supply chain strategy</li></ul></div>
+    <div class="model"><svg class="mi"><use href="#i-ship"/></svg><h3>Voyage Support</h3><p>One-off commercial management for a specific cargo movement, end to end.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-repeat"/></svg><h3>Recurring Freight Programs</h3><p>Ongoing freight management for repeating import, export or domestic cargo flows.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-desk"/></svg><h3>Commercial Freight Desk</h3><p>Executive-level outsourced freight management across multiple modes, contracts and partners.</p></div>
+    <div class="model"><svg class="mi"><use href="#i-advisory"/></svg><h3>Strategic Supply Chain Advisory</h3><p>Commercial advisory for trade lanes, terminal strategy, sourcing, procurement and logistics structure.</p></div>
+  </div>
+ </div>
+</section>
+
+<!-- TYPICAL OUTCOMES -->
+<section class="sec" style="background:linear-gradient(180deg,#fff,var(--sea-1))">
+ <div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">Typical outcomes</span>
+    <h2>Why cargo owners engage Pelorus.</h2>
+    <p>Clients bring us in to sharpen the commercial edge of their supply chain — not to add another layer of logistics.</p>
+  </div>
+  <div class="outcomes">
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Reduce freight spend</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Improve commercial transparency</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Benchmark freight markets</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Strengthen carrier and terminal negotiations</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Eliminate conflicts of interest</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Improve execution oversight</div>
+    <div class="outcome"><svg class="oc"><use href="#i-check"/></svg>Reduce internal freight management overhead</div>
+  </div>
+ </div>
+</section>
+
+<!-- HOW THE COMMERCIAL REVIEW WORKS -->
+<section class="sec">
+ <div class="wrap">
+  <div class="sec-head">
+    <span class="eyebrow">The Commercial Review</span>
+    <h2>What happens during the Commercial Review.</h2>
+    <p>A focused, 30-minute conversation — no obligation, no sales pressure. In that half hour, we review:</p>
+  </div>
+  <div class="review">
+    <div class="rstep"><span class="rn">01</span><h4>Your current freight structure</h4></div>
+    <div class="rstep"><span class="rn">02</span><h4>Cargo flows and annual volume</h4></div>
+    <div class="rstep"><span class="rn">03</span><h4>Your current procurement process</h4></div>
+    <div class="rstep"><span class="rn">04</span><h4>Commercial pain points</h4></div>
+    <div class="rstep"><span class="rn">05</span><h4>Potential savings or risk areas</h4></div>
+    <div class="rstep"><span class="rn">06</span><h4>Whether Pelorus is the right fit</h4></div>
+  </div>
+  <div style="text-align:center;margin-top:34px">
+    <button class="btn gold" style="padding:15px 30px" onclick="openBook()">Book Your Commercial Review →</button>
   </div>
  </div>
 </section>
@@ -361,7 +423,7 @@ footer a{color:var(--gold-soft)}
 <div class="modal" id="modal"><div class="mbox">
   <button class="mclose" onclick="closeBook()" aria-label="Close">&times;</button>
   <h3>Book a Commercial Review</h3>
-  <p class="msub">A short, consultative call — we'll pressure-test your configuration and come back with a firm view. No obligation.</p>
+  <p class="msub">A focused, 30-minute review — we'll pressure-test your configuration and come back with a straight view on fit and opportunity. No obligation.</p>
   <div class="field"><input type="text" id="m_name" placeholder="Your name"></div>
   <div class="field"><input type="text" id="m_co" placeholder="Company"></div>
   <div class="field"><input type="email" id="m_email" placeholder="Work email"></div>
@@ -394,11 +456,15 @@ var VOLS=[
   {key:'1-5m',    label:'1 – 5 million MT'},
   {key:'5m+',     label:'5 million+ MT'}
 ];
-var ENG_LABELS={single:'Single Shipment',recurring:'Recurring Program',desk:'Outsourced Freight Desk',advisory:'Strategic Advisory'};
+var ENG_LABELS={single:'Voyage Support',recurring:'Recurring Freight Programs',desk:'Commercial Freight Desk',advisory:'Strategic Supply Chain Advisory'};
 var GEO_LABELS={domestic:'Domestic','north-america':'North America',international:'International',worldwide:'Worldwide'};
+/* Fee-structure headline per chosen engagement (no figure shown — configuration first) */
+var FEE_LABELS={single:'Estimated Project Fee',recurring:'Estimated Per-Tonne Management Fee',desk:'Estimated Monthly Retainer',advisory:'Tailored Commercial Engagement'};
+/* Recommendation resolves to one of these three commercial engagements */
+var REC_LABELS={single:'Voyage Support',desk:'Commercial Freight Desk',advisory:'Strategic Supply Chain Advisory'};
 
-var config={engagement:'desk',cargo:[],modes:[],volume:'100-500k',services:[],geo:'international'};
-var estTimer=null;
+/* nothing pre-selected — the panel stays empty until the visitor configures */
+var config={engagement:null,cargo:[],modes:[],volume:'100-500k',services:[],geo:null};
 
 /* ---- selection wiring ---- */
 function bindSingle(groupId,key){
@@ -455,23 +521,40 @@ function renderSummary(){
   $('#sGeo').textContent=GEO_LABELS[config.geo]||'—';
 }
 
-/* ---- indicative estimate (server) ---- */
-function onChange(){renderSummary();clearTimeout(estTimer);estTimer=setTimeout(fetchEstimate,180);}
-function pendingState(){
-  var labels={single:'Estimated Project Fee',recurring:'Estimated Commercial Management Fee',desk:'Estimated Monthly Commercial Retainer',advisory:'Estimated Advisory Engagement'};
-  $('#estLabel').textContent=labels[config.engagement]||'Estimated Commercial Engagement';
-  $('#estMain').innerHTML='<span class="pending">Prepared on your commercial review</span>';
-  $('#estPer').textContent='We\'ll confirm an indicative figure against your cargo and lanes.';
+/* ---- recommended engagement + fee structure (no hard-coded pricing) ---- */
+function onChange(){renderSummary();renderEstimate();}
+
+/* Recommend an engagement from the full set of selections.
+   Voyage Support  ← one-off / low volume / few modes
+   Commercial Freight Desk ← recurring, higher volume, COA, multiple modes
+   Strategic Supply Chain Advisory ← terminal, market intel, strategy, project work */
+function recommend(){
+  var s=config.services,m=config.modes,c=config.cargo;
+  var volIdx=VOLS.findIndex(function(v){return v.key===config.volume});
+  var score={single:0,desk:0,advisory:0};
+  if(config.engagement==='single')score.single+=2;
+  if(config.engagement==='recurring'||config.engagement==='desk')score.desk+=2;
+  if(config.engagement==='advisory')score.advisory+=2;
+  if(volIdx>=3)score.desk+=2; else if(volIdx<=1)score.single+=1;
+  if(m.length>=3)score.desk+=2; else if(m.length<=1)score.single+=1;
+  if(s.indexOf('coa')>=0)score.desk+=2;
+  if(s.length>=6)score.desk+=1;
+  ['terminal-neg','market','optimization','project-plan'].forEach(function(k){if(s.indexOf(k)>=0)score.advisory+=1.5;});
+  if(c.indexOf('project')>=0)score.advisory+=1.5;
+  var best='desk',bv=-1;
+  ['single','desk','advisory'].forEach(function(k){if(score[k]>bv){bv=score[k];best=k;}});
+  return best;
 }
-async function fetchEstimate(){
-  try{
-    var r=await fetch('/api/estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(config)});
-    if(!r.ok)throw new Error('no api');
-    var q=await r.json();
-    $('#estLabel').textContent=q.label;
-    $('#estMain').innerHTML='<span class="from">From</span><span class="big">'+q.display+'</span>';
-    $('#estPer').textContent=q.per;
-  }catch(e){ pendingState(); }
+function renderEstimate(){
+  var ready=config.engagement&&config.cargo.length>=1&&config.services.length>=1;
+  if(!ready){
+    $('#feeType').textContent='Configure to see your engagement';
+    $('#recBox').hidden=true;
+    return;
+  }
+  $('#feeType').textContent=FEE_LABELS[config.engagement]||'Tailored Commercial Engagement';
+  $('#recVal').textContent=REC_LABELS[recommend()];
+  $('#recBox').hidden=false;
 }
 
 /* ---- book modal ---- */
