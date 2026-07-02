@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #0a1628;
+  --color-navy-900: #0f1f38;
+  --color-navy-800: #16294a;
+  --color-navy-700: #1f3a66;
+  --color-navy-600: #2b4d85;
+  --color-navy-100: #dbe4f0;
+  --color-navy-50: #f1f5fa;
+  --color-brass-500: #b98d2f;
+  --color-brass-400: #d4a940;
+  --color-signal-600: #0e7490;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  @apply bg-navy-50 text-slate-800 antialiased;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+.card {
+  @apply rounded-lg border border-slate-200 bg-white shadow-sm;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-navy-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-navy-700 disabled:opacity-50;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-md border border-navy-800 px-4 py-2 text-sm font-semibold text-navy-800 transition hover:bg-navy-50;
+}
+
+.input {
+  @apply w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:border-navy-600 focus:outline-none focus:ring-1 focus:ring-navy-600;
+}
+
+.label {
+  @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500;
+}
+
+.badge {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
