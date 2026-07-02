@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { flagContent } from "@/app/actions/reviews";
 import { toggleHelpful } from "@/app/actions/community";
+import { postOfficialResponse } from "@/app/actions/engagement";
 import { RELATIONSHIP_OPTIONS } from "@/lib/constants";
 import { Stars, RepBadge } from "@/components/ui";
 import type { ReviewRow } from "@/lib/types";
@@ -13,6 +14,7 @@ export interface ReviewWithAuthor extends ReviewRow {
     id: string;
     body: string;
     is_company_rep: boolean;
+    is_official_response?: boolean;
     created_at: string;
     author?: { display_name: string } | null;
   }[];
@@ -33,11 +35,14 @@ export function ReviewCard({
   returnPath,
   canInteract,
   categoryLabels,
+  canOfficiallyRespond = false,
 }: {
   review: ReviewWithAuthor;
   returnPath: string;
   canInteract: boolean;
   categoryLabels: Record<string, string>;
+  /** True when the viewer is an approved rep of the reviewed company. */
+  canOfficiallyRespond?: boolean;
 }) {
   const relLabel =
     RELATIONSHIP_OPTIONS.find((r) => r.value === review.relationship)?.label ??
@@ -99,15 +104,45 @@ export function ReviewCard({
       )}
 
       {review.responses?.map((resp) => (
-        <div key={resp.id} className="mt-3 rounded-md border-l-4 border-navy-600 bg-navy-50 p-3 text-sm">
+        <div
+          key={resp.id}
+          className={`mt-3 rounded-md border-l-4 p-3 text-sm ${
+            resp.is_official_response
+              ? "border-brass-500 bg-brass-500/5"
+              : "border-navy-600 bg-navy-50"
+          }`}
+        >
           <div className="mb-1 flex items-center gap-2 text-xs text-slate-500">
-            {resp.is_company_rep && <RepBadge />}
+            {resp.is_official_response ? (
+              <span className="badge bg-brass-500/15 text-brass-500">Official Company Response</span>
+            ) : (
+              resp.is_company_rep && <RepBadge />
+            )}
             <span className="font-medium text-navy-800">{resp.author?.display_name ?? "Member"}</span>
             <span>{new Date(resp.created_at).toLocaleDateString("en-GB")}</span>
           </div>
           <p className="whitespace-pre-line text-slate-700">{resp.body}</p>
         </div>
       ))}
+
+      {canOfficiallyRespond && !review.responses?.some((r) => r.is_official_response) && (
+        <details className="mt-3">
+          <summary className="cursor-pointer text-xs font-semibold text-brass-500">
+            Post official company response
+          </summary>
+          <form action={postOfficialResponse} className="mt-2 space-y-2">
+            <input type="hidden" name="review_id" value={review.id} />
+            <input type="hidden" name="return_path" value={returnPath} />
+            <textarea
+              name="body"
+              className="input min-h-20 text-sm"
+              required
+              placeholder="One official public response per review. Post follow-up clarifications as regular comments."
+            />
+            <button className="btn-primary !py-1.5 text-xs">Publish official response</button>
+          </form>
+        </details>
+      )}
 
       {canInteract && (
         <div className="mt-4 flex items-center gap-4 border-t border-slate-100 pt-3 text-xs">

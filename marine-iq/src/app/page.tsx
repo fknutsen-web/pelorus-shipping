@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { AdSlot } from "@/components/AdSlot";
 
 export const dynamic = "force-dynamic";
 
@@ -99,6 +100,10 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="container-page pt-8">
+        <AdSlot placement="homepage_banner" />
+      </div>
 
       <section className="container-page py-16">
         <h2 className="text-xl font-bold text-navy-900">Built for maritime decisions</h2>

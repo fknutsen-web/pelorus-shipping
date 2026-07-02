@@ -103,6 +103,58 @@ moderation violations (heavy penalty). Labels: Verified Professional →
 Trusted Contributor → Industry Specialist → Recognized Expert → Community
 Leader.
 
+### Notifications & engagement
+
+Notification fan-out lives in **database triggers** (`0004_engagement.sql`), so
+every write path produces the same registrant notifications: new reviews,
+comments and questions, mentions in discussions, moderation flags involving a
+company, endorsements, helpful votes, official responses and leads. Users
+control delivery in the notification center (`/notifications`): in-app, email,
+immediate / daily / weekly digest. `/api/cron/digest?mode=immediate|daily|weekly`
+is the email worker (Resend; schedule via Vercel Cron with `CRON_SECRET`).
+
+**Company response workflow:** review published → reps notified → **one**
+official public response per review (DB-enforced unique index + rep check),
+rendered distinctly from community comments — follow-up clarifications are
+regular labeled comments. Companies still cannot delete or edit reviews.
+
+**AI summaries** (`src/lib/ai-summary.ts`): once an entity has 3+ published
+reviews, a summary paragraph is generated (Claude `claude-haiku-4-5` via the
+Messages API when `ANTHROPIC_API_KEY` is set; deterministic template fallback
+otherwise). The new-review trigger marks summaries stale; they regenerate
+lazily on the next profile view.
+
+**Lead generation:** company profiles carry Request Demo / Request Quote /
+Contact Sales / Become Partner / Book Meeting / Download Brochure forms.
+Leads land in a private `leads` table (RLS: reps + admins only), notify the
+reps, and are worked from `/dashboard/leads`.
+
+### Monetization (revenue never touches reputation)
+
+`0005_monetization.sql` — structurally separated from scoring: nothing in it
+reads or writes reviews, scores or trust signals, and all sponsored surfaces
+render behind an explicit "Sponsored" label.
+
+- **Self-service advertising** (`/advertise`): create an account, upload
+  creative, pick one of 11 campaign types + objective + audience + budget, pay
+  by Stripe Checkout, launch after moderation approval (`/admin/ads`). Spend
+  accrues per impression/click via trigger (default $5 CPM / $1.50 CPC) and
+  campaigns **auto-pause at budget exhaustion** (DB trigger). Dashboard shows
+  impressions, clicks, CTR, spend, remaining budget, targeting, status.
+  Advertisers cannot self-activate campaigns or touch spend/pricing
+  (trigger-guarded).
+- **Subscriptions** (`/pricing`): company Free / Professional / Enterprise
+  tiers, premium professional membership, vendor plans and conference
+  packages. Stripe Checkout; fulfilment is webhook/admin-side only.
+- **Job marketplace** (`/jobs`): reps post jobs; featured placement is paid
+  and cannot be self-granted (trigger-guarded).
+- **Service marketplace** (`/pricing`): sponsored webinars, reports, podcasts,
+  surveys, white papers, launches, event promotion — self-service orders.
+- **Business intelligence** (`/intelligence`): reputation leaderboards,
+  fastest-rising software, conference ROI ranking, trending topics — gated to
+  premium members / paid company tiers, computed exclusively from verified
+  community activity.
+
 ### Module map
 
 | Route | Module |
@@ -115,8 +167,13 @@ Leader.
 | `/professionals`, `/professionals/[id]` | Professional directory, reputation profiles, endorsements |
 | `/trust-index` | Commercial Trust Index table |
 | `/feed` | Verified-only moderated discussion feed |
-| `/dashboard` | Own verification status, document uploads, review history |
-| `/admin/*` | Approvals, flags, claims, trust signals, audit log, company merge |
+| `/dashboard`, `/dashboard/leads` | Own verification status, uploads, review history; rep lead inbox |
+| `/notifications` | Notification center + delivery preferences |
+| `/advertise`, `/advertise/[id]` | Self-service ad portal + campaign metrics dashboard |
+| `/pricing` | Subscriptions, vendor plans, conference packages, premium membership, marketplace |
+| `/jobs` | Job board + rep posting |
+| `/intelligence` | Subscriber BI dashboard |
+| `/admin/*` | Approvals, flags, claims, trust signals, ad review, audit log, company merge |
 
 ### Database
 

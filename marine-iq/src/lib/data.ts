@@ -61,7 +61,7 @@ export async function getReviewsForEntity(
       supabase.from("votes").select("target_id").eq("target_type", "review").in("target_id", reviewIds),
       supabase
         .from("comments")
-        .select("id, review_id, body, is_company_rep, created_at, author_id")
+        .select("id, review_id, body, is_company_rep, is_official_response, created_at, author_id")
         .in("review_id", reviewIds)
         .eq("status", "published")
         .order("created_at"),
@@ -86,6 +86,22 @@ export async function getReviewsForEntity(
       .filter((c) => c.review_id === r.id)
       .map((c) => ({ ...c, author: responseAuthorMap.get(c.author_id) ?? null })),
   }));
+}
+
+/** True when the signed-in user is an approved representative of the company. */
+export async function isRepOf(
+  supabase: Supabase,
+  userId: string | null,
+  companyId: string | null
+): Promise<boolean> {
+  if (!userId || !companyId) return false;
+  const { data } = await supabase
+    .from("company_representatives")
+    .select("user_id")
+    .eq("company_id", companyId)
+    .eq("user_id", userId)
+    .maybeSingle();
+  return !!data;
 }
 
 export async function getSectors(supabase: Supabase) {

@@ -23,6 +23,11 @@ export default async function AdminOverviewPage({
       supabase.from("reviews").select("id", { count: "exact", head: true }).eq("status", "under_review"),
     ]);
 
+  const { count: pendingAds } = await supabase
+    .from("ad_campaigns")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "pending_review");
+
   const { data: companies } = await supabase
     .from("companies")
     .select("id, name")
@@ -36,12 +41,13 @@ export default async function AdminOverviewPage({
     { href: "/admin/flags", label: "Reviews held for moderation", count: pendingReviews.count ?? 0 },
     { href: "/admin/claims", label: "Pending company claims", count: pendingClaims.count ?? 0 },
     { href: "/admin/trust-signals", label: "Trust signals to review", count: pendingSignals.count ?? 0 },
+    { href: "/admin/ads", label: "Ad campaigns to review", count: pendingAds ?? 0 },
   ];
 
   return (
     <div>
       <FlashMessages error={error} notice={notice} />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tiles.map((t, i) => (
           <Link key={i} href={t.href} className="card p-5 transition hover:border-navy-600">
             <div className="text-3xl font-bold text-navy-900">{t.count}</div>

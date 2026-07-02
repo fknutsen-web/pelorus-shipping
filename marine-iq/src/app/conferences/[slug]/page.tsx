@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getSession } from "@/lib/auth";
-import { getCategoryScores, getReviewsForEntity, getOverallScores } from "@/lib/data";
+import { getCategoryScores, getReviewsForEntity, getOverallScores, isRepOf } from "@/lib/data";
+import { getOrRefreshSummary } from "@/lib/ai-summary";
 import { CONFERENCE_SCORE_CATEGORIES } from "@/lib/constants";
 import { Stars, ScoreBar, FlashMessages, EmptyState } from "@/components/ui";
 import { ReviewCard } from "@/components/ReviewCard";
@@ -37,6 +38,11 @@ export default async function ConferenceDetailPage({
   ]);
   const score = overall.get(conference.id);
   const path = `/conferences/${slug}`;
+  const viewerIsRep = await isRepOf(supabase, session.userId, conference.organizer_company_id);
+  const aiSummary = await getOrRefreshSummary(
+    "conference", conference.id, conference.name, reviews.length, categoryScores,
+    reviews.map((r) => `${r.title}: ${r.body}`)
+  );
 
   return (
     <div className="container-page py-10">
@@ -95,6 +101,15 @@ export default async function ConferenceDetailPage({
             })}
           </div>
         )}
+
+        {aiSummary && (
+          <div className="mt-5 rounded-md border border-navy-100 bg-navy-50/60 p-4">
+            <div className="mb-1 text-[10px] font-bold uppercase tracking-widest text-navy-600">
+              AI summary of verified reviews
+            </div>
+            <p className="text-sm leading-relaxed text-slate-700">{aiSummary}</p>
+          </div>
+        )}
       </div>
 
       <div className="mt-10 max-w-4xl space-y-4">
@@ -107,6 +122,7 @@ export default async function ConferenceDetailPage({
               returnPath={path}
               canInteract={session.isVerified}
               categoryLabels={categoryLabels}
+              canOfficiallyRespond={viewerIsRep}
             />
           ))
         ) : (

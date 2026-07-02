@@ -2,11 +2,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getSession } from "@/lib/auth";
-import { getCategoryScores, getReviewsForEntity } from "@/lib/data";
+import { getCategoryScores, getReviewsForEntity, isRepOf } from "@/lib/data";
+import { getOrRefreshSummary } from "@/lib/ai-summary";
+import { submitLead } from "@/app/actions/engagement";
 import { COMPANY_SCORE_CATEGORIES, TRUST_SIGNAL_LABELS } from "@/lib/constants";
 import { Stars, ScoreBar, FlashMessages, EmptyState } from "@/components/ui";
 import { ReviewCard } from "@/components/ReviewCard";
 import { CommentSection } from "@/components/CommentSection";
+import { AdSlot } from "@/components/AdSlot";
+
+const LEAD_BUTTONS: [string, string][] = [
+  ["request_demo", "Request Demo"],
+  ["request_quote", "Request Quote"],
+  ["contact_sales", "Contact Sales"],
+  ["become_partner", "Become Partner"],
+  ["book_meeting", "Book Meeting"],
+  ["download_brochure", "Download Brochure"],
+];
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +61,16 @@ export default async function CompanyPage({
         .eq("status", "published")
         .order("created_at", { ascending: false }),
     ]);
+
+  const viewerIsRep = await isRepOf(supabase, session.userId, company.id);
+  const aiSummary = await getOrRefreshSummary(
+    "company",
+    company.id,
+    company.name,
+    reviews.length,
+    categoryScores,
+    reviews.map((r) => `${r.title}: ${r.body}`)
+  );
 
   const commentAuthorIds = [...new Set((comments ?? []).map((c) => c.author_id))];
   const { data: commentAuthors } = commentAuthorIds.length
@@ -119,6 +141,43 @@ export default async function CompanyPage({
             })}
           </div>
         )}
+
+        {aiSummary && (
+          <div className="mt-5 rounded-md border border-navy-100 bg-navy-50/60 p-4">
+            <div className="mb-1 text-[10px] font-bold uppercase tracking-widest text-navy-600">
+              AI summary of verified reviews
+            </div>
+            <p className="text-sm leading-relaxed text-slate-700">{aiSummary}</p>
+          </div>
+        )}
+
+        {session.userId && !viewerIsRep && (
+          <div className="mt-5 border-t border-slate-100 pt-4">
+            <div className="mb-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+              Contact {company.name}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {LEAD_BUTTONS.map(([type, label]) => (
+                <details key={type} className="relative">
+                  <summary className="btn-secondary cursor-pointer !py-1.5 text-xs">{label}</summary>
+                  <form
+                    action={submitLead}
+                    className="absolute z-10 mt-1 w-72 space-y-2 rounded-md border border-slate-200 bg-white p-3 shadow-lg"
+                  >
+                    <input type="hidden" name="company_id" value={company.id} />
+                    <input type="hidden" name="lead_type" value={type} />
+                    <input type="hidden" name="return_path" value={path} />
+                    <textarea name="message" className="input min-h-16 text-xs" placeholder={`${label} — add a short message…`} />
+                    <button className="btn-primary w-full !py-1.5 text-xs">Send</button>
+                  </form>
+                </details>
+              ))}
+            </div>
+            <p className="mt-1.5 text-[11px] text-slate-400">
+              Sent directly to the company&apos;s verified representatives.
+            </p>
+          </div>
+        )}
       </div>
 
       {signals && signals.length > 0 && (
@@ -152,6 +211,7 @@ export default async function CompanyPage({
                 returnPath={path}
                 canInteract={session.isVerified}
                 categoryLabels={categoryLabels}
+                canOfficiallyRespond={viewerIsRep}
               />
             ))
           ) : (
@@ -168,7 +228,7 @@ export default async function CompanyPage({
           )}
         </div>
 
-        <div>
+        <div className="space-y-6">
           <CommentSection
             comments={(comments ?? []).map((c) => ({ ...c, author: authorMap.get(c.author_id) ?? null }))}
             parentField="company_id"
@@ -176,6 +236,7 @@ export default async function CompanyPage({
             returnPath={path}
             canComment={session.isVerified}
           />
+          <AdSlot placement="sidebar_banner" />
         </div>
       </div>
     </div>

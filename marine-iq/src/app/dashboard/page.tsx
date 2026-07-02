@@ -56,9 +56,14 @@ export default async function DashboardPage({
             </div>
           </div>
           {session.isVerified && (
-            <Link href={`/professionals/${session.userId}`} className="btn-secondary">
-              View my public profile
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              <Link href={`/professionals/${session.userId}`} className="btn-secondary">
+                View my public profile
+              </Link>
+              <Link href="/dashboard/leads" className="btn-secondary">
+                Leads
+              </Link>
+            </div>
           )}
         </div>
 

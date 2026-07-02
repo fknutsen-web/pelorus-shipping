@@ -8,6 +8,7 @@ const NAV = [
   { href: "/admin/flags", label: "Flagged Content" },
   { href: "/admin/claims", label: "Company Claims" },
   { href: "/admin/trust-signals", label: "Trust Signals" },
+  { href: "/admin/ads", label: "Ad Review" },
   { href: "/admin/audit", label: "Audit Log" },
 ];
 
